@@ -16,7 +16,21 @@
   color: black;
 }
 
-h1 {
-  text-align: center;
-  color: darkcyan;
+
+
+.History{
+
+  h1 {
+    text-align: center;
+    color: darkcyan;
+  }
+
+  figure {
+    text-align: center;
+  }
+
+  span {
+    
+  }
+
 }
