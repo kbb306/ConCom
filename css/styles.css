@@ -1,5 +1,5 @@
-#hero img {
-    max-width: 50%;
-    align-items: center;
-    display: block;
+#banner {
+    h1 {
+        text-align: center;}
+    background-image: url("images/ConCom_Hero.jpg");
 }
