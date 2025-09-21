@@ -23,6 +23,7 @@
 
   h1 {
     text-align: center;
+    color: (34, 110, 147, 1);
   }
 
   figure {
@@ -38,6 +39,7 @@
   padding-left: 8%;
   
   h2 {
-    text-align: center;
+    color: rgba(34, 110, 147, 1);
+    padding-left: 30%;
   }
 }
