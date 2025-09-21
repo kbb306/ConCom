@@ -36,4 +36,8 @@
   display: grid;
   grid-template-columns: 33% 33% 33%;
   padding-left: 8%;
+  
+  h2 {
+    text-align: center;
+  }
 }
