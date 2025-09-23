@@ -1,3 +1,5 @@
+/*Styles for Home Page*/
+
 .banner {
     background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../images/ConCom_Hero.jpg");
     height: 100%;
@@ -17,7 +19,7 @@
   
 }
 
-
+/*Styles for the about us page*/
 
 .History{
 
@@ -33,6 +35,8 @@
 
  
 }
+
+/*Styles for the purchases page*/
 
 .plan-grid {
   display: grid;
