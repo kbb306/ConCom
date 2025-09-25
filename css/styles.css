@@ -31,7 +31,9 @@ ul li a:hover {
 /*Styles for Home Page*/
 
 video {
-  width:fit-content
+ width: 100%;
+ height: 33%;
+ margin: 0 auto;
 
 }
 
