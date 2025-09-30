@@ -6,6 +6,24 @@
         <meta charset = "utf-8">
     </head>
     <body>
-        <form></form>
+        <form>
+            <label>Select a plan:</label>
+            <select name="plans" id="plans">
+                <option value="house">Houshold</option>
+                <option value="company">Business</option>
+                <option value="global">Global</option>
+            </select>
+            <div id="peoplerange" onload="rangeControl(this)">
+                <p>How many people on your team?</p>
+                <input type="radio" name="peoplerange" id="1">
+                <label for="1">Something has gone wrong. Enable javascript.</label>
+                <input type="radio" name="peoplerange" id="2">
+                <label for="2">Something has gone wrong. Enable javascript.</label>
+                <input type="radio" name="peoplerange" id="3">
+                <label for="3">Something has gone wrong. Enable javascript.</label>
+                <input type="radio" name="peoplerange" id="4">
+                <label for="4">Something has gone wrong. Enable javascript.</label>
+            </div>
+        </form>
     </body>
 </html>
