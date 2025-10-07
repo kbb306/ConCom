@@ -76,15 +76,15 @@ function tally() {
 }
 
 lastform = document.getElementById("billing")
-todatabase = [planmenu.value,access,servers,price]
-for (var datamine = 0; datamine < todatabase.length; datamine++) {
-    nugget = document.createElement("input")
-    nugget.setAttribute("type","hidden")
-    nugget.setAttribute("name",datamine[i])
-    nugget.setAttribute("id",datamine[i])
-    nugget.setAttribute("value",datamine[i])
-    lastform.append(nugget)
-
+datamine = [["plan",planmenu.value],["access",access],["servers",servers],["price",price]]
+for (var i = 0;i < datamine.length; i++) {
+    nugget = datamine[i]
+    entry = document.createElement("input")
+    entry.setAttribute("type","hidden")
+    entry.setAttribute("name",nugget[0])
+    entry.setAttribute("id",nugget[0])
+    entry.setAttribute("value",nugget[1])
+    lastform.append(entry)
 }
 
     
