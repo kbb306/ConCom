@@ -31,6 +31,22 @@
             <input type="radio" name="hardware" id="manual"></label>
             <label for="manual">Set up DNS manually (incurs third party processing fee)</label> 
         </form>
+        <form>
+            <canvas id="total" height="500" width="25%">
+                Your browser does not support the canvas element.
+            </canvas>
+            <br>
+            <p>Please enter billing information:</p>
+            <br>
+            <label>First Name:&nbsp; <input type="text"></label>
+            <br>
+            <label>Last Name:&nbsp; <input type="text"></label>
+            <br>
+            <label>Billing Address:&nbsp; <input type="text"></label>
+            <br>
+            <label>Zip Code:&nbsp; <input type="text"></label>
+        </form>
+        <button type="button" id="submit">Submit</button>
         <script src="scripts/purchaseform.js"></script>
     </body>
 </html>

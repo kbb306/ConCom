@@ -4,7 +4,7 @@ plan = prevdata.get("plan")
 console.log(plan)
 planmenu = document.getElementById("plans")
 planmenu.value = String(plan)
-
+price = 0
 
 
 function rangeControl(){
@@ -17,12 +17,15 @@ function rangeControl(){
     peoplerange.innerHTML = "<p>How many people on your team?</p>"
     if (planmenu.value == "household") {
         options = houseoptions
+        price = 100
     }
     else if (planmenu.value == "business") {
          options = corpoptions
+         price = 1000
     }
     else if (planmenu.value == "global") {
         options = globaloptions
+        price = 100000
     }
     
     console.log("Array set!")
