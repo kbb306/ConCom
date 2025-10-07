@@ -65,7 +65,7 @@ function tally() {
         }
         else if (radio.id == "manual" && radio[i].checked) {
             DNSfee = 10
-            price += DNSfees
+            price += DNSfee
         }
     }
 }
