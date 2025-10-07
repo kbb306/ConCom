@@ -1,12 +1,11 @@
 var prev = window.location.search
 var prevdata = new URLSearchParams(prev)
 selection = prevdata.get("plan")
-console.log((selection))
-planmenu = document.getElementById("plans")
 price = 0
 access = "None"
 servers = 0
-planmenu.setAttribute("value",selection)
+planmenu = document.getElementById("plans")
+planmenu.value = selection
 rangeControl(selection)
 
 
