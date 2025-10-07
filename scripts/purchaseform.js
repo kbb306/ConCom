@@ -5,7 +5,8 @@ console.log(plan)
 planmenu = document.getElementById("plans")
 planmenu.value = String(plan)
 price = 0
-
+access = "None"
+servers = 0
 
 function rangeControl(){
     houseoptions = [["1-4",.33,4],["4-10",.66,10],["More than 10",1,19],["Prefer not to say",1,19]]
