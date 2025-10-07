@@ -49,17 +49,20 @@ function rangeControl(){
     }
 function tally() {
     multipliers = document.getElementsByName("teamsize")
-    servers = maxusers % 1000
-    extra = 15 * (servers)
+
     for (var i = 0; i < multipliers.length; i++) {
         if (multipliers[i].checked) {
             discount = multipliers[i]
-            price ** discount
+            price *= discount
         }
     }
     hardware = document.getElementsByName("hardware")
     for (var radio = 0; radio < hardware.length; radio++) {
-        
+        if (radio[i].id == "rent") {
+            servers = maxusers % 1000
+            extra = 15 * (servers)
+            price += extra
+        }
     }
 }
 
