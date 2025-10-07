@@ -8,8 +8,8 @@
     <body>
         <form id="plans">
             <label>Select a plan:</label>
-            <select name="plans" id="plans" onchange="rangeControl(this)">
-                <option value="nothing" selected>Select a plan</option>
+            <select name="plans" id="plans" onchange="rangeControl(this.value)">
+                <option value="nothing">Select a plan</option>
                 <option value="household">Houshold</option>
                 <option value="business">Business</option>
                 <option value="global">Global</option>

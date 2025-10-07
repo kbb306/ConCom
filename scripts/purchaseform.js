@@ -1,15 +1,13 @@
 var prev = window.location.search
 var prevdata = new URLSearchParams(prev)
 selection = prevdata.get("plan")
-console.log(selection)
+console.log((selection))
 planmenu = document.getElementById("plans")
 price = 0
 access = "None"
 servers = 0
-if (typeof(selection) != null) {
-    rangeControl(selection)
-    planmenu.value = selection
-}
+planmenu.setAttribute("value",selection)
+rangeControl(selection)
 
 
 function rangeControl(plan){
@@ -20,28 +18,28 @@ function rangeControl(plan){
     peoplerange = document.getElementById("peoplerange")
 
     console.log("Function called")
-    console.log("Selected Option: "+ plan.value)
+    console.log("Selected Option: "+ plan)
 
     peoplerange.innerHTML = "<p>How many people on your team?</p>"
 
-    if (plan.value == "household") {
+    if (plan == "household") {
         options = houseoptions
         price = 100
         
     }
-    else if (plan.value == "business") {
+    else if (plan == "business") {
          options = corpoptions
          price = 1000
          
     }
-    else if (plan.value == "global") {
+    else if (plan == "global") {
         options = globaloptions
         price = 100000
         
     }
 
     else {
-        return
+        options = []
     }
     
     console.log("Array set!")
@@ -59,6 +57,7 @@ function rangeControl(plan){
          peoplerange.append(thing)
          peoplerange.append(thinglabel)  
         }
+        return
     }
 function tally() {
     multipliers = document.getElementsByName("teamsize")
@@ -91,7 +90,7 @@ function tally() {
 }
 
 lastform = document.getElementById("billing") // For later adding to account info in database?
-datamine = [["plan",plan],["access",access],["servers",servers],["price",price]]
+datamine = [["plan",planmenu.value],["access",access],["servers",servers],["price",price]]
 for (var i = 0;i < datamine.length; i++) {
     nugget = datamine[i]
     entry = document.createElement("input") 
