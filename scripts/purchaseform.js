@@ -60,15 +60,31 @@ function tally() {
     for (var radio = 0; radio < hardware.length; radio++) {
         if (radio[i].id == "rent" && radio[i].checked) {
             servers = maxusers % 1000
-            extra = 15 * (servers)
+            var extra = 15 * (servers)
             price += extra
+            access = "Server"
         }
         else if (radio.id == "manual" && radio[i].checked) {
-            DNSfee = 10
+            var DNSfee = 10
             price += DNSfee
+            access = "DNS"
+        }
+        else {
+            access = "Rootkit"
         }
     }
-    
+}
+
+lastform = document.getElementById("billing")
+todatabase = [planmenu.value,access,servers,price]
+for (var datamine = 0; datamine < todatabase.length; datamine++) {
+    nugget = document.createElement("input")
+    nugget.setAttribute("type","hidden")
+    nugget.setAttribute("name",datamine[i])
+    nugget.setAttribute("id",datamine[i])
+    nugget.setAttribute("value",datamine[i])
+    lastform.append(nugget)
+
 }
 
     
