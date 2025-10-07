@@ -91,7 +91,7 @@ function tally() {
 }
 
 lastform = document.getElementById("billing") // For later adding to account info in database?
-datamine = [["plan",planmenu.value],["access",access],["servers",servers],["price",price]]
+datamine = [["plan",plan],["access",access],["servers",servers],["price",price]]
 for (var i = 0;i < datamine.length; i++) {
     nugget = datamine[i]
     entry = document.createElement("input") 
