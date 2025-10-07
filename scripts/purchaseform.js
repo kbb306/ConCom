@@ -29,12 +29,12 @@ function rangeControl(plan){
         price = 100
         
     }
-    else if (planmenu.value == "business") {
+    else if (plan.value == "business") {
          options = corpoptions
          price = 1000
          
     }
-    else if (planmenu.value == "global") {
+    else if (plan.value == "global") {
         options = globaloptions
         price = 100000
         
