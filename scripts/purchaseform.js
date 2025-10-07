@@ -12,24 +12,26 @@ function rangeControl(){
     houseoptions = [["1-4",.33,4],["4-10",.66,10],["More than 10",1,19],["Prefer not to say",1,19]]
     corpoptions = [["20-50",.33,50],["50-70",.66,70],["More than 70",1,100],["Prefer not to say",1,100]]
     globaloptions = [["1000 or less",.33,1000],["10000-50000",.66,50000],["More than 50000",1,10000],["Prefer not to say",1,10000]]
-    var options = []
+    options = []
     peoplerange = document.getElementById("peoplerange")
+    planmenu = document.getElementById("planmenu")
     console.log("Function called")
+    console.log("Selected Option: "+ planmenu.value)
     peoplerange.innerHTML = "<p>How many people on your team?</p>"
     if (planmenu.value == "household") {
         options = houseoptions
         price = 100
-        maxusers = options[2]
+        
     }
     else if (planmenu.value == "business") {
          options = corpoptions
          price = 1000
-         maxusers = options[2]
+         
     }
     else if (planmenu.value == "global") {
         options = globaloptions
         price = 100000
-        maxusers = options[2]
+        
     }
     
     console.log("Array set!")
@@ -53,13 +55,15 @@ function tally() {
 
     for (var i = 0; i < multipliers.length; i++) {
         if (multipliers[i].checked) {
-            discount = multipliers[i]
+            discount = multipliers[i].value
             price *= discount
+            which = i
         }
     }
     hardware = document.getElementsByName("hardware")
     for (var radio = 0; radio < hardware.length; radio++) {
         if (radio[i].id == "rent" && radio[i].checked) {
+            maxusers = options[which][3]
             servers = maxusers % 1000
             var extra = 15 * (servers)
             price += extra
