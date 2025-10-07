@@ -6,7 +6,7 @@
         <meta charset = "utf-8">
     </head>
     <body onload="rangeControl()">
-        <form>
+        <form id="plans">
             <label>Select a plan:</label>
             <select name="plans" id="plans" onchange="rangeControl()">
                 <option value="household">Houshold</option>
@@ -20,7 +20,7 @@
                 
         </form>
             <br>
-        <form>
+        <form id="serveroptions">
             <p>Would you like to:</p>
             <input type="radio" name="hardware" id="rent">
             <label for="rent">Rent a ConCom server (Extra $15 per server used) </label>
@@ -31,7 +31,7 @@
             <input type="radio" name="hardware" id="manual"></label>
             <label for="manual">Set up DNS manually (incurs third party processing fee)</label> 
         </form>
-        <form>
+        <form id="billing">
             <canvas id="total" height="500" width="25%">
                 Your browser does not support the canvas element.
             </canvas>

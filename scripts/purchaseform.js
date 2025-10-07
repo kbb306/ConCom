@@ -68,6 +68,7 @@ function tally() {
             price += DNSfee
         }
     }
+    
 }
 
     
