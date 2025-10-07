@@ -8,9 +8,9 @@ price = 0
 
 
 function rangeControl(){
-    houseoptions = [["1-4",.33],["4-10",.66],["More than 10",1],["Prefer not to say",1]]
-    corpoptions = [["20-50",.33],["50-70",.66],["More than 70",1],["Prefer not to say",1]]
-    globaloptions = [["1000 or less",.33],["10000-50000",.66],["More than 50000",1],["Prefer not to say",1]]
+    houseoptions = [["1-4",.33,4],["4-10",.66,10],["More than 10",1,19],["Prefer not to say",1,19]]
+    corpoptions = [["20-50",.33,50],["50-70",.66,70],["More than 70",1,100],["Prefer not to say",1,100]]
+    globaloptions = [["1000 or less",.33,1000],["10000-50000",.66,50000],["More than 50000",1,10000],["Prefer not to say",1,10000]]
     var options = []
     peoplerange = document.getElementById("peoplerange")
     console.log("Function called")
@@ -18,14 +18,17 @@ function rangeControl(){
     if (planmenu.value == "household") {
         options = houseoptions
         price = 100
+        maxusers = options[2]
     }
     else if (planmenu.value == "business") {
          options = corpoptions
          price = 1000
+         maxusers = options[2]
     }
     else if (planmenu.value == "global") {
         options = globaloptions
         price = 100000
+        maxusers = options[2]
     }
     
     console.log("Array set!")
@@ -46,11 +49,17 @@ function rangeControl(){
     }
 function tally() {
     multipliers = document.getElementsByName("teamsize")
+    servers = maxusers % 1000
+    extra = 15 * (servers)
     for (var i = 0; i < multipliers.length; i++) {
         if (multipliers[i].checked) {
             discount = multipliers[i]
             price ** discount
         }
+    }
+    hardware = document.getElementsByName("hardware")
+    for (var radio = 0; radio < hardware.length; radio++) {
+        
     }
 }
 
