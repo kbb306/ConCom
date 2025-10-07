@@ -5,30 +5,32 @@
         <link rel="stylesheet" href="css/styles.css">
         <meta charset = "utf-8">
     </head>
-    <body>
+    <body onload="rangeControl()">
         <form>
             <label>Select a plan:</label>
-            <select name="plans" id="plans">
-                <option value="house">Houshold</option>
-                <option value="company">Business</option>
+            <select name="plans" id="plans" onchange="rangeControl()">
+                <option value="household">Houshold</option>
+                <option value="business">Business</option>
                 <option value="global">Global</option>
             </select>
-            <div id="peoplerange" onload="rangeControl(this)">
-                <p>How many people on your team?</p>
-                <input type="radio" name="peoplerange" id="1">
-                <label for="1">Something has gone wrong. Enable javascript.</label>
-                <input type="radio" name="peoplerange" id="2">
-                <label for="2">Something has gone wrong. Enable javascript.</label>
-                <input type="radio" name="peoplerange" id="3">
-                <label for="3">Something has gone wrong. Enable javascript.</label>
-                <input type="radio" name="peoplerange" id="4">
-                <label for="4">Something has gone wrong. Enable javascript.</label>
-            </div>
-            <br>
-            <p>Would you like to:</p>
-            <label>Rent a ConCom server (Extra $15 per server used) <input type="checkbox" name="hardware"></label>
-            <label>Use ConCom's autoDNS software on your own hardware (You will be provided download link and instructions after purchase)<input type="checkbox" name="hardware"></label>
-            <label>Set up DNS manually (incurs third party processing fee) <input type="checkbox" name="hardware"></label>
         </form>
+        <br>
+            <form id="peoplerange">
+                <p>How many people on your team?</p>
+                
+        </form>
+            <br>
+        <form>
+            <p>Would you like to:</p>
+            <input type="radio" name="hardware" id="rent">
+            <label for="rent">Rent a ConCom server (Extra $15 per server used) </label>
+            <br>
+            <input type="radio" name="hardware" id="auto">
+            <label for="auto">Use ConCom's autoDNS software on your own hardware (You will be provided download link and instructions after purchase)</label>
+            <br>
+            <input type="radio" name="hardware" id="manual"></label>
+            <label for="manual">Set up DNS manually (incurs third party processing fee)</label> 
+        </form>
+        <script src="scripts/purchaseform.js"></script>
     </body>
 </html>
