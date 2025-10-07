@@ -43,7 +43,15 @@ function rangeControl(){
          peoplerange.append(thing)
          peoplerange.append(thinglabel)  
         }
-        
     }
+function tally() {
+    multipliers = document.getElementsByName("teamsize")
+    for (var i = 0; i < multipliers.length; i++) {
+        if (multipliers[i].checked) {
+            discount = multipliers[i]
+            price ** discount
+        }
+    }
+}
 
     
