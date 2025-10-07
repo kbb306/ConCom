@@ -58,10 +58,13 @@ function tally() {
     }
     hardware = document.getElementsByName("hardware")
     for (var radio = 0; radio < hardware.length; radio++) {
-        if (radio[i].id == "rent") {
+        if (radio[i].id == "rent" && radio[i].checked) {
             servers = maxusers % 1000
             extra = 15 * (servers)
             price += extra
+        }
+        else if (radio.id == "manual" && radio[i].checked) {
+            
         }
     }
 }
