@@ -1,24 +1,30 @@
 var prev = window.location.search
 var prevdata = new URLSearchParams(prev)
-plan = prevdata.get("plan")
-console.log(plan)
+selection = prevdata.get("plan")
+console.log(selection)
 planmenu = document.getElementById("plans")
-planmenu.value = String(plan)
 price = 0
 access = "None"
 servers = 0
+if (typeof(selection) != null) {
+    rangeControl(selection)
+    planmenu.value = selection
+}
 
-function rangeControl(){
+
+function rangeControl(plan){
     houseoptions = [["1-4",.33,4],["4-10",.66,10],["More than 10",1,19],["Prefer not to say",1,19]]
     corpoptions = [["20-50",.33,50],["50-70",.66,70],["More than 70",1,100],["Prefer not to say",1,100]]
     globaloptions = [["1000 or less",.33,1000],["10000-50000",.66,50000],["More than 50000",1,10000],["Prefer not to say",1,10000]]
     options = []
     peoplerange = document.getElementById("peoplerange")
-    planmenu = document.getElementById("planmenu")
+
     console.log("Function called")
-    console.log("Selected Option: "+ planmenu.value)
+    console.log("Selected Option: "+ plan.value)
+
     peoplerange.innerHTML = "<p>How many people on your team?</p>"
-    if (planmenu.value == "household") {
+
+    if (plan.value == "household") {
         options = houseoptions
         price = 100
         
@@ -32,6 +38,10 @@ function rangeControl(){
         options = globaloptions
         price = 100000
         
+    }
+
+    else {
+        return
     }
     
     console.log("Array set!")
