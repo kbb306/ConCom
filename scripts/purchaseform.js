@@ -52,10 +52,12 @@ function rangeControl(plan){
          thing.setAttribute("id",i)
          thing.setAttribute("value",options[i][1])
          thinglabel.setAttribute("for",i)
+         thing.setAttribute("onchange","tally()")
          thinglabel.textContent = (options[i][0] + " ")
          peoplerange.append(thing)
          peoplerange.append(thinglabel)  
         }
+        consolidate()
         return
     }
 function tally() {
@@ -86,18 +88,37 @@ function tally() {
             access = "Rootkit"
         }
     }
+    consolidate()
 }
 
-lastform = document.getElementById("billing") // For later adding to account info in database?
-datamine = [["plan",planmenu.value],["access",access],["servers",servers],["price",price]]
-for (var i = 0;i < datamine.length; i++) {
-    nugget = datamine[i]
-    entry = document.createElement("input") 
-    entry.setAttribute("type","hidden")
-    entry.setAttribute("name",nugget[0])
-    entry.setAttribute("id",nugget[0])
-    entry.setAttribute("value",nugget[1])
-    lastform.append(entry)
+
+
+function consolidate() {
+    lastform = document.getElementById("billing") // For later adding to account info in database?
+    datamine = [["plan",planmenu.value],["access",access],["servers",servers],["price",price]]
+    for (var i = 0;i < datamine.length; i++) {
+        nugget = datamine[i]
+        var entry = document.createElement("input") 
+        entry.setAttribute("type","hidden")
+        entry.setAttribute("name",nugget[0])
+        entry.setAttribute("id",nugget[0])
+        entry.setAttribute("value",nugget[1])
+        lastform.append(entry)
+    }
+
 }
 
-    
+function check(caller) {
+    var OK = false
+    for (var i=0;i<Array.from(caller.elements).length; i++) {
+        var entry = Array.from(caller.elements)[i]
+        if (entry.firstElementChild.type == "text") {
+            regex = RegExp(entry.firstElementChild.name)
+            if (entry.firstElementChild.value.search(regex) == -1 ) {
+                OK = false
+                alert("invalid input at: "+String(entry.innerHTML).split("<")[0])
+            }
+
+        }
+    }
+}

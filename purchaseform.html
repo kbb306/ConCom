@@ -23,25 +23,25 @@
             <br>
         <form id="serveroptions">
             <p>Would you like to:</p>
-            <input type="radio" name="hardware" id="rent">
+            <input type="radio" name="hardware" id="rent" onchange="tally()">
             <label for="rent">Rent a ConCom server (Extra $15 per server used) </label>
             <br>
-            <input type="radio" name="hardware" id="auto">
+            <input type="radio" name="hardware" id="auto" onchange="tally()">
             <label for="auto">Use ConCom's autoDNS software on your own hardware (You will be provided download link and instructions after purchase)</label>
             <br>
-            <input type="radio" name="hardware" id="manual"></label>
+            <input type="radio" name="hardware" id="manual" onchange="tally()"></label>
             <label for="manual">Set up DNS manually (incurs third party processing fee)</label> 
         </form>
-        <form id="billing">
+        <form id="billing" onsubmit="return check(this)">
             <canvas id="total" height="150" width="25%">
                 Your browser does not support the canvas element.
             </canvas>
             <br>
             <p>Please enter billing information:</p>
             <br>
-            <label>First Name:&nbsp; <input type="text" id="fname"></label>
+            <label>First Name:&nbsp; <input type="text" id="fname" name="/.../"></label>
             <br>
-            <label>Last Name:&nbsp; <input type="text" id="lname"></label>
+            <label>Last Name:&nbsp; <input type="text" id="lname" name="/.../"></label>
             <br>
             <label>Billing Address:&nbsp; <input type="text" id="address"></label>
             <br>
@@ -50,6 +50,7 @@
             <label>Email:&nbsp; <input type="email" id="email"></label>
             <br>
             <label>Phone:&nbsp; <input type="tel" id="phone">
+
             <input type="hidden" name= "price" value="0">
             <button type="submit" id="submit">Submit</button>
         </form>
