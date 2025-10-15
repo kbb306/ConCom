@@ -118,7 +118,23 @@ function check(caller) {
                 OK = false
                 alert("invalid input at: "+String(entry.innerHTML).split("<")[0])
             }
+            else {
+                OK = true
+            }
 
+        }
+        else {
+             if (entry.type == "hidden") {
+                if (entry.value !== '') {
+                    OK = true
+                }
+                else {
+                    OK = false
+                }
+             }
+             else {
+                OK = true
+             }
         }
     }
 }
