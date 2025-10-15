@@ -109,33 +109,37 @@ function consolidate() {
 }
 
 function check(caller) {
-    var OK = false
-    for (var i=0;i<Array.from(caller.elements).length; i++) {
-        var entry = Array.from(caller.elements)[i]
-        if (entry.firstElementChild.type == "text") {
-            regex = RegExp(entry.firstElementChild.name)
-            if (entry.firstElementChild.value.search(regex) == -1 ) {
+   form = Array.from(caller.elements) 
+   var OK = false
+   for (var each = 0; each < form; i++) {
+        entry = form[each]
+        if (entry.type == "label") {
+            entry = entry.firstElementChild
+        }
+
+        if (entry.type == "text") {
+            result = entry.value.search(RegExp(entry.name))
+            if (result == -1) {
+                alert("Invalid input at: " + String(entry.parent.innerHTML).split("<")[0])
                 OK = false
-                alert("invalid input at: "+String(entry.innerHTML).split("<")[0])
             }
             else {
                 OK = true
             }
-
         }
-        else {
-             if (entry.type == "hidden") {
-                if (entry.value !== '') {
-                    OK = true
+        else if (entry.type == "hidden") {
+            var already = false
+            if (entry.value.search(RegExp("/\s*\S+\s*/")) == -1) {
+                    OK = false
+                    if (!already) {
+                    alert("Double check first two forms!")
+                    }
+                    already = true
                 }
                 else {
-                    OK = false
+                    OK = true
                 }
-             }
-             else {
-                OK = true
-             }
+            }
         }
-    }
-    return OK
-}
+   }
+
