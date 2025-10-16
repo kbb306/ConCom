@@ -52,10 +52,12 @@ function rangeControl(plan){
          thing.setAttribute("id",i)
          thing.setAttribute("value",options[i][1])
          thinglabel.setAttribute("for",i)
+         thing.setAttribute("onchange","tally()")
          thinglabel.textContent = (options[i][0] + " ")
          peoplerange.append(thing)
          peoplerange.append(thinglabel)  
         }
+        consolidate()
         return
     }
 function tally() {
@@ -86,18 +88,59 @@ function tally() {
             access = "Rootkit"
         }
     }
+    consolidate()
 }
 
-lastform = document.getElementById("billing") // For later adding to account info in database?
-datamine = [["plan",planmenu.value],["access",access],["servers",servers],["price",price]]
-for (var i = 0;i < datamine.length; i++) {
-    nugget = datamine[i]
-    entry = document.createElement("input") 
-    entry.setAttribute("type","hidden")
-    entry.setAttribute("name",nugget[0])
-    entry.setAttribute("id",nugget[0])
-    entry.setAttribute("value",nugget[1])
-    lastform.append(entry)
+
+
+function consolidate() {
+    lastform = document.getElementById("billing") // For later adding to account info in database?
+    datamine = [["plan",planmenu.value],["access",access],["servers",servers],["price",price]]
+    for (var i = 0;i < datamine.length; i++) {
+        nugget = datamine[i]
+        var entry = document.createElement("input") 
+        entry.setAttribute("type","hidden")
+        entry.setAttribute("name",nugget[0])
+        entry.setAttribute("id",nugget[0])
+        entry.setAttribute("value",nugget[1])
+        lastform.append(entry)
+    }
+
 }
 
-    
+function check(caller) {
+   form = Array.from(caller.elements) 
+   var OK = false
+   for (var each = 0; each < form; i++) {
+        entry = form[each]
+        if (entry.type == "label") {
+            entry = entry.firstElementChild
+        }
+
+        if (entry.type == "text") {
+            result = entry.value.search(RegExp(entry.name))
+            if (result == -1) {
+                alert("Invalid input at: " + String(entry.parent.innerHTML).split("<")[0])
+                OK = false
+            }
+            else {
+                OK = true
+            }
+        }
+        else if (entry.type == "hidden") {
+            var already = false
+            if (entry.value.search(RegExp("/\s*\S+\s*/")) == -1) {
+                    OK = false
+                    if (!already) {
+                    alert("Double check first two forms!")
+                    }
+                    already = true
+                }
+                else {
+                    OK = true
+                }
+            }
+        }
+        return OK
+   }
+
