@@ -168,7 +168,7 @@ context.fill()
 context.fillStyle = "Blue"
 context.fillText("Your Total:",10,30)
  
-context.font = "10px Arial"
+context.font = "15px Arial"
 context.fillStyle = "Black"
 var base = datamine[4][1]
 var price = base
