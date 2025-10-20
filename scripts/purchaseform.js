@@ -44,14 +44,14 @@ function rangeControl(plan){
     console.log("Array set!")
     console.log(options)
     newform = []
-    for (var i = 0; i< options.length; i++) {
+    for (item of options) {
          var thing = document.createElement("input")
          var thinglabel = document.createElement("label")
          thing.setAttribute("name","teamsize")
          thing.setAttribute("type","radio")
-         thing.setAttribute("id",i)
+         thing.setAttribute("id",options.indexOf(item))
          thing.setAttribute("value",options[i][1])
-         thinglabel.setAttribute("for",i)
+         thinglabel.setAttribute("for",thing.id)
          thing.setAttribute("onchange","tally()")
          thinglabel.textContent = (options[i][0] + " ")
          peoplerange.append(thing)
@@ -62,19 +62,16 @@ function rangeControl(plan){
     }
 function tally() {
     multipliers = document.getElementsByName("teamsize")
-    for (var i = 0; i < multipliers.length; i++) {
-        if (multipliers[i].checked) {
-            discount = multipliers[i].value
-            console.log(i)
-            which = i
-           
+    for (var item of multipliers) {
+        if (item.checked) {
+            discount = item.value
+            which = multipliers.indexOf(item)           
         }
          console.log("Size option " + which + " is checked")
     }
     hardware = document.getElementsByName("hardware")
-    for (var i = 0; i < hardware.length; i++) {
-        radio = hardware
-        if (radio[i].id == "rent" && radio[i].checked) {
+    for (radio of hardware) {
+        if (radio.id == "rent" && radio.checked) {
             maxusers = options[which][2]
             console.log(maxusers)
             servers = Math.floor(maxusers / 1000)
@@ -83,10 +80,10 @@ function tally() {
             }
             access = "Server"
         }
-        else if (radio[i].id == "manual" && radio[i].checked) {
+        else if (radio.id == "manual" && radio.checked) {
             access = "DNS"
         }
-        else if (radio[i].id == "manual" && radio[i].checked){
+        else if (radio.id == "manual" && radio.checked){
             access = "Rootkit"
         }
     }
@@ -98,7 +95,7 @@ function tally() {
 
 function consolidate(datamine = [["plan",planmenu.value],["multiplier",0],["access",access],["servers",servers],["price",price]]) {
     lastform = document.getElementById("billing") // For later adding to account info in database?
-    for (var i = 0;i < datamine.length; i++) {
+    for (var nugget of datamine) {
         nugget = datamine[i]
         var entry = document.createElement("input") 
         entry.setAttribute("type","hidden")
@@ -117,7 +114,7 @@ function consolidate(datamine = [["plan",planmenu.value],["multiplier",0],["acce
 function check(caller) {
    form = Array.from(caller.elements) 
    var OK = false
-   for (var each = 0; each < form; i++) {
+   for (var each of form) {
         entry = form[each]
         if (entry.type == "label") {
             entry = entry.firstElementChild
