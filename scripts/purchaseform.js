@@ -66,36 +66,38 @@ function tally() {
     for (var i = 0; i < multipliers.length; i++) {
         if (multipliers[i].checked) {
             discount = multipliers[i].value
-            price *= discount
             which = i
+           
         }
+         console.log("Size option " + which + " is checked")
     }
     hardware = document.getElementsByName("hardware")
-    for (var radio = 0; radio < hardware.length; radio++) {
+    for (var i = 0; i < hardware.length; i++) {
+        radio = hardware
         if (radio[i].id == "rent" && radio[i].checked) {
-            maxusers = options[which][3]
-            servers = maxusers % 1000
-            var extra = 15 * (servers)
-            price += extra
+            maxusers = options[which][2]
+            console.log(maxusers)
+            servers = Math.floor(maxusers / 1000)
+            if (servers == 0) {
+                servers = 1
+            }
             access = "Server"
         }
-        else if (radio.id == "manual" && radio[i].checked) {
-            var DNSfee = 10
-            price += DNSfee
+        else if (radio[i].id == "manual" && radio[i].checked) {
             access = "DNS"
         }
-        else {
+        else if (radio[i].id == "manual" && radio[i].checked){
             access = "Rootkit"
         }
     }
-    consolidate()
+    var datamine = [["plan",planmenu.value],["multiplier",discount],["access",access],["servers",servers],["price",price]]
+    consolidate(datamine) 
 }
 
 
 
-function consolidate() {
+function consolidate(datamine = [["plan",planmenu.value],["multiplier",0],["access",access],["servers",servers],["price",price]]) {
     lastform = document.getElementById("billing") // For later adding to account info in database?
-    datamine = [["plan",planmenu.value],["access",access],["servers",servers],["price",price]]
     for (var i = 0;i < datamine.length; i++) {
         nugget = datamine[i]
         var entry = document.createElement("input") 
@@ -104,8 +106,12 @@ function consolidate() {
         entry.setAttribute("id",nugget[0])
         entry.setAttribute("value",nugget[1])
         lastform.append(entry)
+        if (datamine[1][1] != 0){
+        updateCanvas(datamine)
     }
+    //console.log(datamine)
 
+}
 }
 
 function check(caller) {
@@ -144,3 +150,42 @@ function check(caller) {
         return OK
    }
 
+canvas = document.getElementById("total")
+context = canvas.getContext("2d")
+context.font = "20px Arial"
+context.fillStyle = "Blue"
+context.rect(0,0,500,150)
+context.stroke()
+context.fillText("Your Total:",10,30)
+
+function updateCanvas(datamine) {
+canvas = document.getElementById("total")
+context = canvas.getContext("2d")
+context.font = "20px Arial"
+context.rect(0,0,500,150)
+context.fillStyle = "White"
+context.fill()
+context.fillStyle = "Blue"
+context.fillText("Your Total:",10,30)
+ 
+context.font = "10px Arial"
+context.fillStyle = "Black"
+var base = datamine[4][1]
+var price = base
+context.fillText(("• "+datamine[0][1]+" Plan: "+"$"+base),15,45)
+context.fillText(("• "+" X Usage Multiplier: "+datamine[1][1]),15,60)
+price *=datamine[1][1]
+totalY = 75
+if (datamine[2][1] == "DNS") {
+    context.fillText(("+ DNS Fee: $10"),15,totalY)
+    price+=10
+    totalY += 15
+}
+else if (datamine[2][1] == "Server") {
+    context.fillText(("+ $15 per server X "+ datamine[3][1]+" Servers: "+"$"+(15*datamine[3][1])),15,totalY)
+    price+=(15*datamine[3][1])
+    totalY += 15
+}
+
+context.fillText(("Total Price: "+"$"+price),15,totalY)
+}
