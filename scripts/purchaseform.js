@@ -156,34 +156,33 @@ context.stroke()
 context.fillText("Your Total:",10,30)
 
 function updateCanvas(datamine) {
-canvas = document.getElementById("total")
-context = canvas.getContext("2d")
-context.font = "20px Arial"
-context.clearRect(0,0,canvas.width,canvas.height)
-context.fillStyle = "Blue"
-context.fillText("Your Total:",10,30)
- 
-context.font = "15px Arial"
-context.fillStyle = "Black"
-var base = datamine[4][1]
-var price = base
-context.fillText((" "+"Selected Plan: "+"$"+base),15,50)
-context.fillText(("  "+" ⨉ Usage Multiplier: "+datamine[1][1]),15,65)
-price *=datamine[1][1]
-totalY = 80
-if (datamine[2][1] == "DNS") {
-    context.fillText(("+ DNS Fee: $10"),15,totalY)
-    price+=10
-    totalY += 15
-}
-else if (datamine[2][1] == "Server") {
-    context.fillText(("+ $15 per server X "+ datamine[3][1]+" Servers: "+"$"+(15*datamine[3][1])),15,totalY)
-    price+=(15*datamine[3][1])
-    totalY += 15
-}
-context.moveTo(0,totalY)
-context.lineTo(225,totalY)
-context.stroke()
-totalY+=15
-context.fillText(("Total Price: "+"$"+price),15,totalY)
-}
+    context.clearRect(0,0,canvas.width,canvas.height)
+    context.fillStyle = "Blue"
+    context.font = "20px Arial"
+    context.fillText("Your Total:",10,30)
+    
+    context.font = "15px Arial"
+    context.fillStyle = "Black"
+    var base = datamine[4][1]
+    var price = base
+    context.fillText((" "+"Selected Plan: "+"$"+base),15,50)
+    context.fillText(("  "+" ⨉ Usage Multiplier: "+datamine[1][1]),15,65)
+    price *=datamine[1][1]
+    totalY = 80
+    if (datamine[2][1] == "DNS") {
+        context.fillText(("+ DNS Fee: $10"),15,totalY)
+        price+=10
+        totalY += 15
+    }
+    else if (datamine[2][1] == "Server") {
+        context.fillText(("+ $15 per server X "+ datamine[3][1]+" Servers: "+"$"+(15*datamine[3][1])),15,totalY)
+        price+=(15*datamine[3][1])
+        totalY += 15
+    }
+    context.moveTo(0,totalY)
+    context.beginPath()
+    context.lineTo(225,totalY)
+    context.stroke()
+    totalY+=15
+    context.fillText(("Total Price: "+"$"+price),15,totalY)
+    }
