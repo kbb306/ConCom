@@ -96,20 +96,31 @@ function tally() {
 
 function consolidate(datamine = [["plan",planmenu.value],["multiplier",0],["access",access],["servers",servers],["price",price]]) {
     lastform = document.getElementById("billing") // For later adding to account info in database?
-    for (var nugget of datamine) {
-        var entry = document.createElement("input") 
-        entry.setAttribute("type","hidden")
-        entry.setAttribute("name",nugget[0])
-        entry.setAttribute("id",nugget[0])
-        entry.setAttribute("value",nugget[1])
-        lastform.append(entry)
+    Names = []
+    hiddeninfo = Array.from(lastform.querySelectorAll('input[type=hidden]')) // Get names for all hidden inputs
+    hiddeninfo.forEach(element => {
+        Names.push(element.name)
+    });
+    for (nugget of datamine) {
+        if (Names.includes(nugget[0])) {
+            i = hiddeninfo.getIndex(nugget[0])
+            hiddeninfo[i].value = nugget[1]
+        }
+        else {
+            entry = document.createElement("input")
+            entry.setAttribute("type",hidden)
+            entry.setAttribute("name",nugget[0])
+            entry.setAttribute("value",nugget[1])
+            lastform.append(entry)
+        }
+    }
         if (datamine[1][1] != 0){
         updateCanvas(datamine)
     }
     //console.log(datamine)
 
 }
-}
+
 
 function check(caller) {
    form = Array.from(caller.elements) 
