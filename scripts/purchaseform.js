@@ -50,10 +50,10 @@ function rangeControl(plan){
          thing.setAttribute("name","teamsize")
          thing.setAttribute("type","radio")
          thing.setAttribute("id",options.indexOf(item))
-         thing.setAttribute("value",options[i][1])
+         thing.setAttribute("value",item[1])
          thinglabel.setAttribute("for",thing.id)
          thing.setAttribute("onchange","tally()")
-         thinglabel.textContent = (options[i][0] + " ")
+         thinglabel.textContent = (item[0] + " ")
          peoplerange.append(thing)
          peoplerange.append(thinglabel)  
         }
@@ -61,7 +61,7 @@ function rangeControl(plan){
         return
     }
 function tally() {
-    multipliers = document.getElementsByName("teamsize")
+    multipliers = Array.from(document.getElementsByName("teamsize"))
     for (var item of multipliers) {
         if (item.checked) {
             discount = item.value
@@ -69,7 +69,7 @@ function tally() {
         }
          console.log("Size option " + which + " is checked")
     }
-    hardware = document.getElementsByName("hardware")
+    hardware = Array.from(document.getElementsByName("hardware"))
     for (radio of hardware) {
         if (radio.id == "rent" && radio.checked) {
             maxusers = options[which][2]
@@ -96,7 +96,6 @@ function tally() {
 function consolidate(datamine = [["plan",planmenu.value],["multiplier",0],["access",access],["servers",servers],["price",price]]) {
     lastform = document.getElementById("billing") // For later adding to account info in database?
     for (var nugget of datamine) {
-        nugget = datamine[i]
         var entry = document.createElement("input") 
         entry.setAttribute("type","hidden")
         entry.setAttribute("name",nugget[0])
