@@ -179,8 +179,9 @@ function updateCanvas(datamine) {
         price+=(15*datamine[3][1])
         totalY += 15
     }
-    context.moveTo(0,totalY)
+    
     context.beginPath()
+    context.moveTo(0,totalY)
     context.lineTo(225,totalY)
     context.stroke()
     totalY+=15
