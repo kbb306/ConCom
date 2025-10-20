@@ -159,9 +159,7 @@ function updateCanvas(datamine) {
 canvas = document.getElementById("total")
 context = canvas.getContext("2d")
 context.font = "20px Arial"
-context.rect(0,0,500,150)
-context.fillStyle = "White"
-context.fill()
+context.clearRect(0,0,canvas.width,canvas.height)
 context.fillStyle = "Blue"
 context.fillText("Your Total:",10,30)
  
@@ -169,8 +167,8 @@ context.font = "15px Arial"
 context.fillStyle = "Black"
 var base = datamine[4][1]
 var price = base
-context.fillText(("• "+datamine[0][1]+" Plan: "+"$"+base),15,50)
-context.fillText(("• "+" ⨉ Usage Multiplier: "+datamine[1][1]),15,65)
+context.fillText((" "+"Selected Plan: "+"$"+base),15,50)
+context.fillText(("  "+" ⨉ Usage Multiplier: "+datamine[1][1]),15,65)
 price *=datamine[1][1]
 totalY = 80
 if (datamine[2][1] == "DNS") {
@@ -185,6 +183,7 @@ else if (datamine[2][1] == "Server") {
 }
 context.moveTo(0,totalY)
 context.lineTo(225,totalY)
-totalY+=5
+context.stroke()
+totalY+=15
 context.fillText(("Total Price: "+"$"+price),15,totalY)
 }
