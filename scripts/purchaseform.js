@@ -62,10 +62,10 @@ function rangeControl(plan){
     }
 function tally() {
     multipliers = document.getElementsByName("teamsize")
-
     for (var i = 0; i < multipliers.length; i++) {
         if (multipliers[i].checked) {
             discount = multipliers[i].value
+            console.log(i)
             which = i
            
         }
