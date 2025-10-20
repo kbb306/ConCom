@@ -169,10 +169,10 @@ context.font = "15px Arial"
 context.fillStyle = "Black"
 var base = datamine[4][1]
 var price = base
-context.fillText(("• "+datamine[0][1]+" Plan: "+"$"+base),15,45)
-context.fillText(("• "+" X Usage Multiplier: "+datamine[1][1]),15,60)
+context.fillText(("• "+datamine[0][1]+" Plan: "+"$"+base),15,50)
+context.fillText(("• "+" ⨉ Usage Multiplier: "+datamine[1][1]),15,65)
 price *=datamine[1][1]
-totalY = 75
+totalY = 80
 if (datamine[2][1] == "DNS") {
     context.fillText(("+ DNS Fee: $10"),15,totalY)
     price+=10
@@ -183,6 +183,8 @@ else if (datamine[2][1] == "Server") {
     price+=(15*datamine[3][1])
     totalY += 15
 }
-
+context.moveTo(0,totalY)
+context.lineTo(225,totalY)
+totalY+=5
 context.fillText(("Total Price: "+"$"+price),15,totalY)
 }
