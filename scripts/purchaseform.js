@@ -67,8 +67,9 @@ function tally() {
             discount = item.value
             which = multipliers.indexOf(item)           
         }
-         console.log("Size option " + which + " is checked")
     }
+    console.log("Size option " + which + " is checked")
+
     hardware = Array.from(document.getElementsByName("hardware"))
     for (radio of hardware) {
         if (radio.id == "rent" && radio.checked) {
