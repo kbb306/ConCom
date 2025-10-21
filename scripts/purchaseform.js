@@ -84,7 +84,7 @@ function tally() {
             console.log(maxusers)
             servers = Math.floor(maxusers / 1000)
             if (servers == 0) {
-                servers += 1
+                servers = 1
             }
             
         }
@@ -137,8 +137,9 @@ function consolidate(datamine) {
 }
 
 
-function check() {
-   form = Array.from((document.getElementById("billing")).elements) 
+function check(caller) {
+   form = Array.from(caller.elements) 
+   var OK = false
    for (var entry of form) {
         if (entry.type == "label") {
             entry = entry.firstElementChild
