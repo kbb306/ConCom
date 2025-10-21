@@ -140,14 +140,13 @@ function consolidate(datamine) {
 function check(caller) {
    form = Array.from(caller.elements) 
    var OK = false
-   for (var each of form) {
-        entry = form[each]
+   for (var entry of form) {
         if (entry.type == "label") {
             entry = entry.firstElementChild
         }
 
         if (entry.type == "text") {
-            result = entry.value.search(RegExp(entry.class))
+            result = entry.value.search(RegExp(entry.className))
             if (result == -1) {
                 alert("Invalid input at: " + String(entry.parent.innerHTML).split("<")[0])
                 OK = false
