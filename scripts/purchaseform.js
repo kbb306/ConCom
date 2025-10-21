@@ -146,7 +146,7 @@ function check() {
         }
 
         if (entry.type == "text") {
-            result = entry.value.search(RegExp(entry.data-pattern))
+            result = entry.value.search(RegExp(entry.title))
             if (result == -1) {
                 alert("Invalid input at: " + String(entry.parentELement.innerHTML).split("<")[0])
                 OK = false
