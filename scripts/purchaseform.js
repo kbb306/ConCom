@@ -4,7 +4,6 @@ selection = prevdata.get("plan")
 price = 0
 access = "None"
 servers = 0
-OK = false
 planmenu = document.getElementById("plans")
 planmenu.value = selection
 datamine = [["plan",selection],["multiplier",0],["access",access],["servers",servers],["price",price]]
@@ -60,7 +59,7 @@ function rangeControl(plan){
          peoplerange.append(thinglabel)  
         }
         consolidate(datamine)
-        return
+        
     }
 function tally() {
     console.clear()
