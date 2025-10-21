@@ -205,6 +205,10 @@ function updateCanvas(datamine) {
         price+=(15*datamine[3][1])
         totalY += 15
     }
+
+    else if (datamine[2][1] == "Rootkit") {
+        
+    }
     
     context.beginPath()
     context.moveTo(0,totalY)
