@@ -6,6 +6,7 @@ access = "None"
 servers = 0
 planmenu = document.getElementById("plans")
 planmenu.value = selection
+datamine = [["plan",selection],["multiplier",0],["access",access],["servers",servers],["price",price]]
 rangeControl(selection)
 
 
@@ -57,11 +58,14 @@ function rangeControl(plan){
          peoplerange.append(thing)
          peoplerange.append(thinglabel)  
         }
-        consolidate()
+        consolidate(datamine)
         return
     }
 function tally() {
+    console.clear()
     multipliers = Array.from(document.getElementsByName("teamsize"))
+    plan = document.getElementById("plans").value
+    console.log("Checking which size option is checked")
     for (var item of multipliers) {
         if (item.checked) {
             discount = item.value
@@ -71,44 +75,55 @@ function tally() {
     console.log("Size option " + which + " is checked")
 
     hardware = Array.from(document.getElementsByName("hardware"))
+    console.log("Checking which DNS option is checked")
     for (radio of hardware) {
         if (radio.id == "rent" && radio.checked) {
+            console.log(radio.id+" is checked!")
+            access = "Server"
             maxusers = options[which][2]
             console.log(maxusers)
             servers = Math.floor(maxusers / 1000)
             if (servers == 0) {
                 servers = 1
             }
-            access = "Server"
+            
         }
         else if (radio.id == "manual" && radio.checked) {
+            console.log(radio.id+" is checked!")
             access = "DNS"
         }
         else if (radio.id == "manual" && radio.checked){
+            console.log(radio.id+" is checked!")
             access = "Rootkit"
         }
     }
-    var datamine = [["plan",planmenu.value],["multiplier",discount],["access",access],["servers",servers],["price",price]]
+    datamine = [["plan",plan],["multiplier",discount],["access",access],["servers",servers],["price",price]]
     consolidate(datamine) 
 }
 
 
 
-function consolidate(datamine = [["plan",planmenu.value],["multiplier",0],["access",access],["servers",servers],["price",price]]) {
+function consolidate(datamine) {
+    console.clear()
+    console.log("Current values are " + datamine)
     lastform = document.getElementById("billing") // For later adding to account info in database?
     Names = []
-    hiddeninfo = Array.from(lastform.querySelectorAll('input[type=hidden]')) // Get names for all hidden inputs
+    hiddeninfo = Array.from(lastform.querySelectorAll('input[type=hidden]'))
     hiddeninfo.forEach(element => {
         Names.push(element.name)
     });
+   // console.log(Names)
     for (nugget of datamine) {
-        if (Names.includes(nugget[0])) {
-            i = hiddeninfo.getIndex(nugget[0])
+        console.log( "Searching for hidden "+ nugget[0]+" entry")
+        i = Names.indexOf(nugget[0])
+        if (i >= 0) {
+            console.log(nugget[0]+" found: " +hiddeninfo[i].value+". Changing to "+nugget[1])
             hiddeninfo[i].value = nugget[1]
         }
         else {
+            console.log(nugget[0]+" entry not found! Creating...")
             entry = document.createElement("input")
-            entry.setAttribute("type",hidden)
+            entry.setAttribute("type","hidden")
             entry.setAttribute("name",nugget[0])
             entry.setAttribute("value",nugget[1])
             lastform.append(entry)
