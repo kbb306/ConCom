@@ -32,7 +32,7 @@
             <input type="radio" name="hardware" id="manual" onchange="tally()"></label>
             <label for="manual">Set up DNS manually (incurs third party processing fee)</label> 
         </form>
-        <form id="billing" onsubmit="return check(this)">
+        <form id="billing" onsubmit="return OK">
             <br>
             <br>
             <canvas id="total" height="150" width="500">
@@ -52,7 +52,7 @@
             <label>Email:&nbsp; <input type="email" id="email"></label>
             <br>
             <label>Phone:&nbsp; <input type="tel" id="phone">
-            <button type="submit" id="submit">Submit</button>
+            <button type="submit" id="submit" onclick="check()">Submit</button>
         </form>
        
         <script src="scripts/purchaseform.js"></script>

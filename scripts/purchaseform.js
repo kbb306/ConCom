@@ -4,6 +4,7 @@ selection = prevdata.get("plan")
 price = 0
 access = "None"
 servers = 0
+OK = false
 planmenu = document.getElementById("plans")
 planmenu.value = selection
 datamine = [["plan",selection],["multiplier",0],["access",access],["servers",servers],["price",price]]
@@ -84,7 +85,7 @@ function tally() {
             console.log(maxusers)
             servers = Math.floor(maxusers / 1000)
             if (servers == 0) {
-                servers = 1
+                servers += 1
             }
             
         }
@@ -137,9 +138,8 @@ function consolidate(datamine) {
 }
 
 
-function check(caller) {
-   form = Array.from(caller.elements) 
-   var OK = false
+function check() {
+   form = Array.from((document.getElementById("billing")).elements) 
    for (var entry of form) {
         if (entry.type == "label") {
             entry = entry.firstElementChild
