@@ -158,7 +158,7 @@ function check(caller) {
         }
         else if (entry.type == "hidden") {
             var already = false
-            if (entry.value.search(RegExp("/\s*\S+\s*/")) == -1) {
+            if (!entry.value) {
                     OK = false
                     if (!already) {
                     alert("Double check first two forms!")
