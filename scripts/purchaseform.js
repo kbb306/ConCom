@@ -61,6 +61,7 @@ function rangeControl(plan){
         consolidate(datamine)
         
     }
+    
 function tally() {
     console.clear()
     multipliers = Array.from(document.getElementsByName("teamsize"))
