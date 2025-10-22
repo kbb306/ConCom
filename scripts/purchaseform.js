@@ -138,6 +138,7 @@ function consolidate(datamine) {
 
 
 function check(caller) {
+    console.log(caller)
    form = Array.from(caller.elements) 
    var OK = false
    for (var entry of form) {
@@ -147,6 +148,7 @@ function check(caller) {
 
         if (entry.type == "text") {
             result = entry.value.search(RegExp(entry.title))
+            console.log(result)
             if (result == -1) {
                 alert("Invalid input at: " + String(entry.parentELement.innerHTML).split("<")[0])
                 OK = false
@@ -157,7 +159,7 @@ function check(caller) {
         }
         else if (entry.type == "hidden") {
             var already = false
-            if (!entry.value) {
+            if (!entry.value || entry.value == None) {
                     OK = false
                     if (!already) {
                     alert("Double check first two forms!")
