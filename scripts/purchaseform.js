@@ -92,7 +92,7 @@ function tally() {
             console.log(radio.id+" is checked!")
             access = "DNS"
         }
-        else if (radio.id == "manual" && radio.checked){
+        else if (radio.id == "auto" && radio.checked){
             console.log(radio.id+" is checked!")
             access = "Rootkit"
         }
