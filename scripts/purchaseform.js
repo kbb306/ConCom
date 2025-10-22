@@ -1,8 +1,9 @@
 var prev = window.location.search
 var prevdata = new URLSearchParams(prev)
+already = false
 selection = prevdata.get("plan")
 price = 0
-access = "None"
+access = null
 servers = 0
 planmenu = document.getElementById("plans")
 planmenu.value = selection
@@ -138,11 +139,13 @@ function consolidate(datamine) {
 }
 
 
-function check(caller) {
+function validate() {
+    caller = document.getElementById("billing")
     console.log(caller)
    form = Array.from(caller.elements) 
    var OK = false
    for (var entry of form) {
+        console.log(entry)
         if (entry.type == "label") {
             entry = entry.firstElementChild
         }
@@ -151,7 +154,10 @@ function check(caller) {
             result = entry.value.search(RegExp(entry.title))
             console.log(result)
             if (result == -1) {
-                alert("Invalid input at: " + String(entry.parentELement.innerHTML).split("<")[0])
+                if (!already) {
+                alert("Invalid input at:"+(entry.parentElement.innerHTML).split("<")[0])
+                }
+                already = true
                 OK = false
             }
             else {
@@ -159,8 +165,7 @@ function check(caller) {
             }
         }
         else if (entry.type == "hidden") {
-            var already = false
-            if (!entry.value || entry.value == None) {
+            if (!entry.value || entry.value == 0) {
                     OK = false
                     if (!already) {
                     alert("Double check first two forms!")
@@ -171,6 +176,8 @@ function check(caller) {
                     OK = true
                 }
             }
+        else {}
+
         }
         return OK
    }
