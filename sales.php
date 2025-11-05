@@ -7,7 +7,7 @@
 </head>
 <body> 
 <?php include("nav.html");?>
-    <form action="purchaseform.html">
+    <form action="purchaseform.php">
         <div class="plan-grid">
             <div id="Household">
                 <h2>Household</h2>
@@ -15,7 +15,7 @@
                 <img src="images/ConCom_house.jpg" width="75%">
                 <figcaption>For households and small scale clubs</figcaption>
                 </figure>
-                <a href="purchaseform.html?plan=household">Choose</a>
+                <a href="purchaseform.php?plan=household">Choose</a>
             </div>
 
             <div id="Business">
@@ -24,7 +24,7 @@
                 <img src="images/ConCom_Office.jpg" width="75%">
                 <figcaption>For businesses and non-profits</figcaption>
                 </figure>
-                <a href="purchaseform.html?plan=business">Choose</a>
+                <a href="purchaseform.php?plan=business">Choose</a>
             </div>
 
             <div id="Global">
@@ -33,7 +33,7 @@
                 <img src="images/ConCom_Earth.jpg" width="75%">
                 <figcaption>For multinational organizations</figcaption>
                 </figure>
-                <a href="purchaseform.html?plan=global">Choose</a>
+                <a href="purchaseform.php?plan=global">Choose</a>
             </div>
             <span class="disclaimer">In addition to the prices listed on the submenus, ConCom reserves the right to use spare processing power and storage on all connected client systems.</span>
         </div>
