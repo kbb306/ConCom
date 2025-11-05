@@ -7,4 +7,9 @@ function upload($name,$pass,$domain,$plan,$servers,$price,$access) {
     $conn = new mysqli($servername,$username,$password,$dbname);
     $sql = "INSERT INTO UserData $name $pass $domain $plan $servers $price $access True";
 }
+function getprev() {
+    foreach($_REQUEST as $key => $value) {
+        
+    }
+}
 ?>
