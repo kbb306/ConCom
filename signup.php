@@ -9,7 +9,6 @@
     }
     
     function getprev() {
-    
-            
+            foreach($_POST, $key => value)
         }
 ?>
