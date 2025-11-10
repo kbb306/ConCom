@@ -5,12 +5,12 @@
         $servername = "localhost";
         $dbname = "concom";
         $conn = new mysqli($servername,$username,$password,$dbname);
-        $sql = "INSERT INTO UserData $name $pass $domain $plan $servers $price $access True";
+        $sql = "INSERT INTO UserData $name $pass $domain $plan $servers $price $access False";
     }
     
     function getprev() {
             foreach($_POST, $key => value) {
-                
+
             }
         }
 ?>
