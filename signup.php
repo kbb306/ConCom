@@ -1,4 +1,4 @@
-<php? 
+<?php 
     function upload($name,$pass,$domain,$plan,$servers,$price,$access) {
         $username = "root";
         $password = "Legally18";
@@ -9,6 +9,8 @@
     }
     
     function getprev() {
-            foreach($_POST, $key => value)
+            foreach($_POST, $key => value) {
+                
+            }
         }
 ?>
