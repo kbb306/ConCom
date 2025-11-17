@@ -7,13 +7,31 @@
     </head>
     <body>
         <?php 
+            session_start()
             function getprev() {
                 foreach($_POST, $key => $value) {
                     print "<input type='hidden' name='$key' value='$value'>"
                 }
             }
+
+             function upload($name,$pass,$domain,$plan,$servers,$price,$access) {
+        $username = "root";
+        $password = "Legally18";
+        $servername = "localhost";
+        $dbname = "concom";
+        $conn = new mysqli($servername,$username,$password,$dbname);
+        $insert = "INSERT INTO UserData $name $pass $domain $plan $servers $price $access False";
+        $select = "SELECT * FROM UserData WHERE 'domain' = $domain"
+        $existing = $conn -> query($select)
+        if $existing -> num_rows > 0 {
+            print "Your domain name already exists"
+        }
+    }
+    if isset($_POST["name"],$_POST["pass"],$_POST["domain"],$_POST["plan"],$_POST["plan"],$_POST["servers"],$_POST["price"],$_POST["access"]) {
+        upload($_POST["name"],$_POST["pass"],$_POST["domain"],$_POST["plan"],$_POST["plan"],$_POST["servers"],$_POST["price"],$_POST["access"])}
 ?>
-            <form action="createaccount.php">
+    ?>
+            <form action="signup.php">
                 <h1>Create your account</h1>
                 <label for="name">Enter a username: <input type="text" name="name" pattern=""></label>
                 <label for="pass">Enter a password: <input type="password" name="pass"></label>
