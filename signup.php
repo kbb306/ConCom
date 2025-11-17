@@ -26,6 +26,11 @@
         if $existing -> num_rows > 0 {
             print "Your domain name already exists"
         }
+        else {
+            $result = $conn -> query($select)
+            header("location: youraccount.php")
+            exit()
+        }
     }
     if isset($_POST["name"],$_POST["pass"],$_POST["domain"],$_POST["plan"],$_POST["plan"],$_POST["servers"],$_POST["price"],$_POST["access"]) {
         upload($_POST["name"],$_POST["pass"],$_POST["domain"],$_POST["plan"],$_POST["plan"],$_POST["servers"],$_POST["price"],$_POST["access"])}
