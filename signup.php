@@ -19,6 +19,7 @@
         $password = "Legally18";
         $servername = "localhost";
         $dbname = "concom";
+        $pass = hash($pass)
         $conn = new mysqli($servername,$username,$password,$dbname);
         $insert = "INSERT INTO UserData $name $pass $domain $plan $servers $price $access False";
         $select = "SELECT * FROM UserData WHERE 'domain' = $domain"
@@ -28,7 +29,7 @@
         }
         else {
             $result = $conn -> query($select)
-            header("location: youraccount.php")
+            header("location: home.php")
             exit()
         }
     }
