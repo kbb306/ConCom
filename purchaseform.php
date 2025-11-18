@@ -41,17 +41,17 @@
             <br>
             <p>Please enter billing information:</p>
             <br>
-            <label>First Name:&nbsp; <input type="text" id="fname" title="\s*\S+\s*"></label>
+            <label>First Name:&nbsp; <input type="text" id="fname" name ="fname"title="\s*\S+\s*"></label>
             <br>
-            <label>Last Name:&nbsp; <input type="text" id="lname" title="\s*\S+\s*"></label>
+            <label>Last Name:&nbsp; <input type="text" id="lname" name="lname" title="\s*\S+\s*"></label>
             <br>
-            <label>Billing Address:&nbsp; <input type="text" id="address" title=""></label>
+            <label>Billing Address:&nbsp; <input type="text" id="address" name="address" title=""></label>
             <br>
-            <label>Zip Code:&nbsp; <input type="text" id="zip" title="\d\d\d\d\d"></label>
+            <label>Zip Code:&nbsp; <input type="text" id="zip" name="zip" title="\d\d\d\d\d"></label>
             <br>
-            <label>Email:&nbsp; <input type="email" id="email"></label>
+            <label>Email:&nbsp; <input type="email" id="email" name="email"></label>
             <br>
-            <label>Phone:&nbsp; <input type="tel" id="phone"></label>
+            <label>Phone:&nbsp; <input type="tel" id="phone" name="phone"></label>
             <button type="submit" id="submit">Submit</button>
         </form>
        
