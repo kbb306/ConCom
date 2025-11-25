@@ -32,7 +32,7 @@
             <input type="radio" name="hardware" id="manual" onchange="tally()"></label>
             <label for="manual">Set up DNS manually (incurs third party processing fee)</label> 
         </form>
-        <form id="billing" onsubmit="return validate()" action="signup.php">
+        <form id="billing"  method ="post" onsubmit="return validate()" action="signup.php">
             <br>
             <br>
             <canvas id="total" height="150" width="500">
