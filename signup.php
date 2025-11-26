@@ -19,18 +19,18 @@
                 $password = "Legally18";
                 $servername = "localhost";
                 $dbname = "concom";
-                $pass = hash($pass);
+                $pass = hash("sha256",$pass);
                 $domainarr = explode(".",$domain);
                 $domain = $domainarr[1];
                 $conn = new mysqli($servername,$username,$password,$dbname);
-                $insert = "INSERT INTO userdata $email $name $pass $domain $plan $servers $price $access False";
-                $select = "SELECT * FROM uaserdata WHERE 'domain' = $domain";
+                $insert = "INSERT INTO userdata (email, username, password, domainname, plan, servers, price, access, isAdmin) $email $name $pass $domain $plan $servers $price $access False";
+                $select = "SELECT * FROM userdata WHERE domain = '$domain'";
                 $existing = $conn -> query($select);
                 if ($existing -> num_rows > 0) {
                     print "Your domain name already exists";
                 }
                 else {
-                    $result = $conn -> query($select);
+                    $result = $conn -> query($insert);
                     header("location: home.php");
                     exit();
                 }
@@ -41,11 +41,12 @@
                     $servername = "localhost";
                     $dbname = "concom";
                     $conn = new mysqli($servername,$username,$password,$dbname);
-                    $insert = "INSERT INTO billingdata $email $fname $lname $addr $tel $zip";
+                    $insert = "INSERT INTO billingdata (email, fname, lname, addr, tel, zip) $email $fname $lname $addr $tel $zip";
+                    $result = $conn -> query($insert)
                 }
                 
             if (isset($_POST["email"],$_POST["name"],$_POST["pass"],$_POST["domain"],$_POST["plan"],$_POST["plan"],$_POST["servers"],$_POST["price"],$_POST["access"],$_POST["fname"],$_POST["lname"],$_POST["address"],$_POST["phone"],$_POST["zip"])) {
-                upload($_POST["email"],$_POST["name"],$_POST["pass"],$_POST["domain"],$_POST["plan"],$_POST["plan"],$_POST["servers"],$_POST["price"],$_POST["access"]);
+                upload($_POST["email"],$_POST["name"],$_POST["pass"],$_POST["domain"],$_POST["plan"],$_POST["servers"],$_POST["price"],$_POST["access"]);
                 billupload($_POST["email"],$_POST["fname"],$_POST["lname"],$_POST["address"],$_POST["phone"],$_POST["zip"]);
                 header("location: home.php");
                 exit();
