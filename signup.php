@@ -59,7 +59,7 @@
                 <label for="pass">Enter a password: <input type="password" name="pass" pattern="^.{,16}" required></label>
                 <label for="domain">Enter your desired domain name: <input type="text" name="domain" pattern=".*[.]concomcompany[.]com$" require> </label>
                 <?php getprev()?>
-                <button type="submit" value="Submit" method ="post">
+                <button type="submit" value="Submit" method ="post">Submit</button>
             </form>
     </body>
 </html>
