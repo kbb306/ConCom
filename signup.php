@@ -53,13 +53,13 @@
 
         ?>
     
-            <form action="signup.php">
+            <form action="signup.php" method ="post">
                 <h1>Create your account</h1>
                 <label for="name">Enter a username: <input type="text" name="name" pattern="^.{,12}$" required></label>
                 <label for="pass">Enter a password: <input type="password" name="pass" pattern="^.{,16}" required></label>
                 <label for="domain">Enter your desired domain name: <input type="text" name="domain" pattern=".*[.]concomcompany[.]com$" require> </label>
                 <?php getprev()?>
-                <button type="submit" value="Submit" method ="post">Submit</button>
+                <button type="submit" value="Submit">Submit</button>
             </form>
     </body>
 </html>
