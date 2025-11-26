@@ -20,10 +20,16 @@
             $addrarray = explode("@",$notEmail);
             $name = $addrarray[0];
             $address = $addrarray[1];
-            $domainarr = explode(".",$address)
-            $domain = $domainarr[0]
-            $sql = "SELECT password FROM UserData WHERE name = '$name' AND domainname = '$domain' ";
+            $domainarr = explode(".",$address);
+            $domain = $domainarr[0];
+            $sql = "SELECT password FROM UserData WHERE name = `$name` AND domainname = `$domain` ";
             $result = $conn -> query($sql);
+            if (!$result) {
+                die("Query failed.");
+            }
+            else if ($result -> num_rows < 0) {
+                print "Invalid login information."
+            }
             while ($row = $result -> fetch_assoc()) {
                 $pass = $row["password"];
                 
