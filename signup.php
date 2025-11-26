@@ -23,7 +23,7 @@
                 $domainarr = explode(".",$domain);
                 $domain = $domainarr[1];
                 $conn = new mysqli($servername,$username,$password,$dbname);
-                $insert = "INSERT INTO userdata (email, username, password, domainname, plan, servers, price, access, isAdmin) $email $name $pass $domain $plan $servers $price $access False";
+                $insert = "INSERT INTO userdata (email, username, password, domainname, plan, servers, price, access, isAdmin) ($email, $name, $pass, $domain, $plan, $servers, $price, $access, False)";
                 $select = "SELECT * FROM userdata WHERE domain = '$domain'";
                 $existing = $conn -> query($select);
                 if ($existing -> num_rows > 0) {
@@ -41,8 +41,8 @@
                     $servername = "localhost";
                     $dbname = "concom";
                     $conn = new mysqli($servername,$username,$password,$dbname);
-                    $insert = "INSERT INTO billingdata (email, fname, lname, addr, tel, zip) $email $fname $lname $addr $tel $zip";
-                    $result = $conn -> query($insert)
+                    $insert = "INSERT INTO billingdata (email, fname, lname, addr, tel, zip) VALUE ($email, $fname, $lname, $addr, $tel, $zip)";
+                    $result = $conn -> query($insert);
                 }
                 
             if (isset($_POST["email"],$_POST["name"],$_POST["pass"],$_POST["domain"],$_POST["plan"],$_POST["plan"],$_POST["servers"],$_POST["price"],$_POST["access"],$_POST["fname"],$_POST["lname"],$_POST["address"],$_POST["phone"],$_POST["zip"])) {
