@@ -5,6 +5,7 @@
         <form action="login.php" method=POST>
             <label>Enter your username and domain name as "USER@DOMAIN": &nbsp; <input type="text" name="notEmail"></label>
             <label>Enter your password: &nbsp; <input type="password" name="password"></label>
+            <button type="submit" value="submit">Submit</button>
         </form> 
         <?php
             session_start();
@@ -18,7 +19,9 @@
             $password = $_POST["password"];
             $addrarray = explode("@",$notEmail);
             $name = $addrarray[0];
-            $domain = $addrarray[1];
+            $address = $addrarray[1];
+            $domainarr = explode(".",$address)
+            $domain = $domainarr[0]
             $sql = "SELECT password FROM UserData WHERE name = '$name' AND domainname = '$domain' ";
             $result = $conn -> query($sql);
             while ($row = $result -> fetch_assoc()) {
