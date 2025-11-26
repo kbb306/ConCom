@@ -21,18 +21,20 @@
                 $dbname = "concom";
                 $pass = hash("sha256",$pass);
                 $domainarr = explode(".",$domain);
-                $domain = $domainarr[1];
+                $domain = $domainarr[0];
                 $conn = new mysqli($servername,$username,$password,$dbname);
-                $insert = "INSERT INTO userdata (email, username, password, domainname, plan, servers, price, access, isAdmin) ($email, $name, $pass, $domain, $plan, $servers, $price, $access, False)";
-                $select = "SELECT * FROM userdata WHERE domain = '$domain'";
+                $insert = "INSERT INTO userdata (email, username, password, domainname, plan, servers, price, access, isAdmin)
+                    VALUES ('$email', '$name', '$pass', '$domain', '$plan', $servers, $price, '$access', 0)";
+                $select = "SELECT * FROM userdata WHERE domainname = '$domain'";
                 $existing = $conn -> query($select);
                 if ($existing -> num_rows > 0) {
                     print "Your domain name already exists";
                 }
                 else {
                     $result = $conn -> query($insert);
-                    header("location: home.php");
-                    exit();
+                    if (!$result) {
+                        header("Location: sales.php");
+                    }
                 }
                     }
                 function billupload($email,$fname,$lname,$addr,$tel,$zip) {
@@ -41,11 +43,12 @@
                     $servername = "localhost";
                     $dbname = "concom";
                     $conn = new mysqli($servername,$username,$password,$dbname);
-                    $insert = "INSERT INTO billingdata (email, fname, lname, addr, tel, zip) VALUE ($email, $fname, $lname, $addr, $tel, $zip)";
-                    $result = $conn -> query($insert);
+                    $insert = "INSERT INTO billingdata (email, fname, lname, addr, tel, zip)
+                    VALUES ('$email', '$fname', '$lname', '$addr', '$tel', '$zip')";
+                    $result = $conn->query($insert);
                 }
                 
-            if (isset($_POST["email"],$_POST["name"],$_POST["pass"],$_POST["domain"],$_POST["plan"],$_POST["plan"],$_POST["servers"],$_POST["price"],$_POST["access"],$_POST["fname"],$_POST["lname"],$_POST["address"],$_POST["phone"],$_POST["zip"])) {
+            if (isset($_POST["email"],$_POST["name"],$_POST["pass"],$_POST["domain"],$_POST["plan"],$_POST["servers"],$_POST["price"],$_POST["access"],$_POST["fname"],$_POST["lname"],$_POST["address"],$_POST["phone"],$_POST["zip"])) {
                 upload($_POST["email"],$_POST["name"],$_POST["pass"],$_POST["domain"],$_POST["plan"],$_POST["servers"],$_POST["price"],$_POST["access"]);
                 billupload($_POST["email"],$_POST["fname"],$_POST["lname"],$_POST["address"],$_POST["phone"],$_POST["zip"]);
                 header("location: home.php");
@@ -56,9 +59,9 @@
     
             <form action="signup.php" method ="post">
                 <h1>Create your account</h1>
-                <label for="name">Enter a username: <input type="text" name="name" pattern="^.{,12}$" required></label>
-                <label for="pass">Enter a password: <input type="password" name="pass" pattern="^.{,16}" required></label>
-                <label for="domain">Enter your desired domain name: <input type="text" name="domain" pattern=".*[.]concomcompany[.]com$" require> </label>
+                <label for="name">Enter a username: <input type="text" name="name" pattern=".{5,12}$" required></label>
+                <label for="pass">Enter a password: <input type="password" name="pass" pattern=".{7,16}" required></label>
+                <label for="domain">Enter your desired domain name: <input type="text" name="domain" pattern="^[A-Za-z0-9-]+\.concomcompany\.com$" required> </label>
                 <?php getprev()?>
                 <button type="submit" value="Submit">Submit</button>
             </form>
