@@ -22,7 +22,7 @@
             $address = $addrarray[1];
             $domainarr = explode(".",$address);
             $domain = $domainarr[0];
-            $sql = "SELECT password FROM UserData WHERE name = `$name` AND domainname = `$domain` ";
+            $sql = "SELECT password FROM userdata WHERE username = '$name' AND domainname = '$domain'";
             $result = $conn -> query($sql);
             if (!$result) {
                 die("Query failed.");
@@ -35,7 +35,7 @@
                 
             }
             $password = hash("sha256",$password);
-                if ($password = $pass) {
+                if ($password === $pass) {
                     header("location: account.php");
                     exit();
                 }
