@@ -23,12 +23,13 @@
             $result = $conn -> query($sql);
             while ($row = $result -> fetch_assoc()) {
                 $pass = $row["password"];
-                $password = hash("sha256",$password);
+                
+            }
+            $password = hash("sha256",$password);
                 if ($password = $pass) {
                     header("location: account.php");
                     exit();
                 }
-            }
         }
             ?>
     </body>
