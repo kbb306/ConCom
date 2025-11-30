@@ -28,7 +28,7 @@
                 die("Query failed.");
             }
             else if ($result -> num_rows < 0) {
-                print "Invalid login information."
+                print "Invalid login information.";
             }
             while ($row = $result -> fetch_assoc()) {
                 $pass = $row["password"];
