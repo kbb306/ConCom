@@ -36,6 +36,7 @@
             }
             $password = hash("sha256",$password);
                 if ($password === $pass) {
+                    $_SESSION["name"] = $name;
                     header("location: account.php");
                     exit();
                 }

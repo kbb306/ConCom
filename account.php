@@ -6,9 +6,10 @@
 
     <?php
         session_start();
-                if (isset($_POST["name"])) {
-                    $name = $_POST["name"];
+                if (isset($_SESSION["name"])) {
+                    $name = $_SESSION["name"];
                 }
+                else {}
                 $username = "root";
                 $password = "Legally18";
                 $servername = "localhost";
