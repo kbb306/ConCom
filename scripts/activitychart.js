@@ -75,11 +75,22 @@ function chartCore(price,plan,servers) {
             document.getElementById("Activity"),
             config
         )
+
+        function updateColors() {
+            const dataset = ServerChart.data.datasets[0];
+            dataset.backgroundColor = dataset.data.map(v => {
+                if (v >= 90)   return 'rgba(255, 99, 132, 0.6)';   // red for high load
+                if (v >= 70)   return 'rgba(255, 206, 86, 0.6)';   // yellow for medium
+                return 'rgba(75, 192, 192, 0.6)';                  // green for low
+            });
+        }
+
         function randomize() {
             const datarr = ServerChart.data.datasets[0].data;
             for (i in datarr) {
                 datarr[i] = Math.floor(Math.random()*maxpercent)
             }
+            updateColors()
             ServerChart.update()
         }
         setInterval(randomize,2000)
