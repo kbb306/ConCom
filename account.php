@@ -15,7 +15,7 @@
                 $servername = "localhost";
                 $dbname = "concom";
                 $conn = new mysqli($servername,$username,$password,$dbname);
-                $query = "SELECT plan, price, servers FROM userdata WHERE username = '$name'";
+                $query = "SELECT * FROM userdata WHERE username = '$name'";
                 $result = $conn -> query($query);
                 if ($result -> num_rows > 0) {
                     while ($rows = $result -> fetch_assoc()) {

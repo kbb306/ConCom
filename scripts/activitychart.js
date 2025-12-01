@@ -7,6 +7,9 @@ function generateNumberRange(start, end, step = 1) {
 }
 
 function chartCore(price,plan,servers) {
+    if (servers = 0) {
+        servers = 1
+    }
     plans = {"household":100,"business":1000,"global":100000}
     housepeople = {"low":4,"medium":10,"high":19}
     corppeople = {"low":50,"medium":70,"high":100}
@@ -79,6 +82,8 @@ function chartCore(price,plan,servers) {
             dataset.backgroundColor = dataset.data.map(v => {
                 if (v >= 90)   return 'rgba(255, 99, 132, 0.6)';   // red for high load
                 if (v >= 70)   return 'rgba(255, 206, 86, 0.6)';   // yellow for medium
+                if (v >= 50)   return 'rgba(54, 162, 235, 0.6)';
+
                 return 'rgba(75, 192, 192, 0.6)';                  // green for low
             });
         }

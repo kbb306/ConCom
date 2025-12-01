@@ -93,10 +93,17 @@ function tally() {
         else if (radio.id == "manual" && radio.checked) {
             console.log(radio.id+" is checked!")
             access = "DNS"
+            
         }
         else if (radio.id == "auto" && radio.checked){
             console.log(radio.id+" is checked!")
             access = "Rootkit"
+            maxusers = options[which][2]
+            servers = Math.floor(maxusers / 1000)
+            if (servers == 0) {
+                servers = 1
+            }
+
         }
     }
     datamine = [["plan",plan],["multiplier",discount],["access",access],["servers",servers],["price",price]]
