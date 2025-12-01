@@ -1,28 +1,37 @@
 function generateNumberRange(start, end, step = 1) {
   let numbers = [];
-  for (let i = start; i < end; i += step) {
+  for (let i = start; i <= end; i += step) {
     numbers.push(i);
   }
   return numbers;
 }
 
 function chartCore(price,plan,servers) {
-    plans = {"household":100,"business":1000,"global":1000000}
-    housepeople = {0.33:4,0.66:10,1:19}
-    corppeople = {0.33:50,0.66:70,1:100}
-    globalpeople = {0.33:1000,0.66:50000,1:100000}
+    plans = {"household":100,"business":1000,"global":100000}
+    housepeople = {"low":4,"medium":10,"high":19}
+    corppeople = {"low":50,"medium":70,"high":100}
+    globalpeople = {"low":1000,"medium":50000,"high":100000}
     bridge = {"household":housepeople,"business":corppeople,"global":globalpeople}
     base = plans[plan]
     opts = bridge[plan]
-    key = price/base
+    ratio = price/base
+    let key
+    if (ratio < 0.5) {
+    key = "low";}
+    else if (ratio < 0.8) {
+    key = "medium";}
+    else {
+    key = "high";}
     people = opts[key]
     perserver = Math.floor(people/servers)
+    ratio = perserver/1000
+    maxpercent = Math.min(ratio*100,100)
     labels = []
     data = []
     nums = generateNumberRange(1,servers)
     for (i of nums) {
         labels.push("Server "+i)
-        data.push(Math.floor(Math.random()*perserver))
+        data.push(Math.floor(Math.random()*maxpercent))
     }
     const chartdata  = {
         labels: labels,
@@ -69,9 +78,9 @@ function chartCore(price,plan,servers) {
         function randomize() {
             const datarr = ServerChart.data.datasets[0].data;
             for (i in datarr) {
-                datarr[i] = Math.floor(Math.random()*perserver)
-                ServerChart.update()
+                datarr[i] = Math.floor(Math.random()*maxpercent)
             }
+            ServerChart.update()
         }
         setInterval(randomize,2000)
     }
