@@ -14,7 +14,7 @@ rangeControl(selection)
 function rangeControl(plan){
     houseoptions = [["1-4",.33,4],["4-10",.66,10],["More than 10",1,19],["Prefer not to say",1,19]]
     corpoptions = [["20-50",.33,50],["50-70",.66,70],["More than 70",1,100],["Prefer not to say",1,100]]
-    globaloptions = [["1000 or less",.33,1000],["10000-50000",.66,50000],["More than 50000",1,10000],["Prefer not to say",1,10000]]
+    globaloptions = [["1000 or less",.33,1000],["10000-50000",.66,50000],["More than 50000",1,100000],["Prefer not to say",1,100000]]
     options = []
     peoplerange = document.getElementById("peoplerange")
 
