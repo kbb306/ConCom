@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
     <body>
+        <?php include("nav.html"); ?>
         <form action="login.php" method=POST>
             <label>Enter your username and domain name as "USER@DOMAIN": &nbsp; <input type="text" name="notEmail"></label>
             <label>Enter your password: &nbsp; <input type="password" name="password"></label>
             <button type="submit" value="submit">Submit</button>
         </form> 
         <?php
+            
             session_start();
             $username = "root";
             $password = "Legally18";

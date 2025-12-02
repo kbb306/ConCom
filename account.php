@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" src="css/styles.css">
+        <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -14,7 +14,7 @@
                     else {
                         die("Unable to retrieve username.");
                     }
-                    if ($name == "CraigFerson") {
+                    if ($name == "craigferson") {
                         header("location: admin.php");
                         exit();
                     }

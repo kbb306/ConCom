@@ -3,7 +3,7 @@
         <title>
 
         </title>
-        <link rel="stylesheet" src="css/styles.css">
+        <link rel="stylesheet" href="css/styles.css">
     </head>
     <body>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -41,15 +41,14 @@
             $query = "SELECT * FROM userdata JOIN billingdata ON userdata.email = billingdata.email ";
             $result = $conn -> query($query);
             if ($result -> num_rows > 0) {
-                
-                print "<h2>User data</h2>";
-                print "<div style=" ."height=> 200px; overflow-y=> auto;".">
-                            <table>";
+                print "<h2>User data</h2>
+                        <div style='height: 200px; overflow-y: auto;'>
+                        <table border='1'>";
                 print "         <tr>";
                 while ($fieldinfo = $result -> fetch_field()) {
                     print "         <th>" .$fieldinfo->name. "</th>";
                 }   
-                    print "         <th>People Using</th>";
+                    print "         <th>Users</th>";
                     print "     </tr>";
                 while ($row = $result -> fetch_assoc()) {
                     print "     <tr>";
@@ -62,7 +61,7 @@
                 print "     </table>
                        </div>";
             }
-            $sql = "SELECT price, plan FROM userdata";
+            $sql = "SELECT price, plan, servers FROM userdata";
             $price_plan = $conn -> query($sql);
             $total = 0;
             $servers = 0;
