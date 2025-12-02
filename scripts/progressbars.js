@@ -36,8 +36,8 @@ function fileInator(dyndomains) {
         const fileSizes = [];
         const prefixes = [
             "marysbakingco","facelessmegacorp","randomacademy",
-            "deleteheads2004","ARC","willowhillpsych",
-            "randomcitygeneralhospital","OKDonuts","monstersincorporated"
+            "deleteheads2004","arc","willowhillpsych",
+            "randomcitygeneralhospital","okdonuts","monstersincorporated"
         ].concat(dyndomains);
 
         const smallFiles = [
