@@ -1,5 +1,6 @@
 <script src="https://cdn.jsdelivr.net/npm/progressbar.js"></script>
-<script src="scripts/progressbars.js"></script>
+<script src="scripts/downloadbar.js"></script>
+<script src="scripts/deletebar.js"></script>
 <div id="filestealer">
     <h2>Server Harvesting</h2>
     <div id="filebar"></div>
@@ -9,9 +10,12 @@
     <script>
     fileInator(<?php echo json_encode($domains); ?>);
     </script>
-
 </div>
 <div id="evidencewiper">
+    <h2>Company Purge Progress</h2>
     <div id="evidencebar"></div>
     <p id="evidence-status"></p>
+    <p id="amountwiped"></p>
+    <p id="files-deleted"></p>
+    <script>deleteInator();</script>
 </div>
