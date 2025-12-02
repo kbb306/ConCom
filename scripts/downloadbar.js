@@ -32,9 +32,9 @@ function fileInator(dyndomains) {
         const prefixes = [
             "marysbakingco","facelessmegacorp","randomacademy",
             "deleteheads2004","arc","willowhillpsych",
-            "randomcitygeneralhospital","okdonuts","monstersincorporated","saltcamsite.concomcompany.com",
-            "greathardware.concomcompany.com","krazykarlres.concomcompany.com","paymequick.concomcompany.com",
-            "myfavbooks.concomcompany.com","easymathlearning.concomcompany.com"
+            "randomcitygeneralhospital","okdonuts","monstersincorporated","saltcamsite",
+            "greathardware","krazykarlres.concomcompany.com","paymequick",
+            "myfavbooks","easymathlearning"
         ].concat(dyndomains);
 
         const smallFiles = [
@@ -42,7 +42,14 @@ function fileInator(dyndomains) {
             "index.html","purchase_records.sql","secret_recipes.txt",
             "manifesto.html","namgyubirthdaydontsharesubongiswear.jpg",
             "donuts_staff_hbo_max_password_dont_share.txt",
-            "MM_rev_engin_blueprints.pdf","public_key.pem"
+            "MM_rev_engin_blueprints.pdf","public_key.pem",
+            "error_logs_2021.txt","config_backup.old","temp_session_data.bin",
+            "form_submissions.csv","notes_mtg.docx","client_list_old.xls",
+            "invoice_jan2018.pdf","profile_pictures.zip","employee_handbook_v3.pdf",
+            "faq_draft.html","holiday_schedule.ics","shipping_labels.db",
+            "anonymous_tips.txt","product_tags.json","legacy_passwords.bak",
+            "devnotes_sprint42.md","printerconfig.ini","autobackup_2019.zip"
+
         ];
         const medFiles = [
             "Employees.db","passwords.kdbx","accounts.dat","users.sql",
