@@ -1,43 +1,14 @@
-function generateNumberRange(start, end, step = 1) {
-  let numbers = [];
-  for (let i = start; i <= end; i += step) {
-    numbers.push(i);
-  }
-  return numbers;
-}
-
-function getPeople(price,plan) {
-    plans = {"household":100,"business":1000,"global":100000,}
-    housepeople = {"low":4,"medium":10,"high":19}
-    corppeople = {"low":50,"medium":70,"high":100}
-    globalpeople = {"low":1000,"medium":50000,"high":100000}
-    bridge = {"household":housepeople,"business":corppeople,"global":globalpeople}
-    base = plans[plan]
-    opts = bridge[plan]
-    ratio = price/base
-    let key
-    if (ratio < 0.5) {
-    key = "low";}
-    else if (ratio < 0.8) {
-    key = "medium";}
-    else {
-    key = "high";}
-    people = opts[key]
-    return people
-}
-
-function chartCore(price,plan,servers) {
-    people = getPeople(price,plan)
+function chartCore(people,servers) {
     perserver = Math.floor(people/servers)
     ratio = perserver/1000
     maxpercent = Math.min(ratio*100,100)
     labels = []
     data = []
     nums = generateNumberRange(1,servers)
-    for (i of nums) {
-        labels.push("Server "+i)
-        data.push(Math.floor(Math.random()*maxpercent))
-    }
+    
+    labels.push("Total Server Load (%) ")
+    data.push(Math.floor(Math.random()*maxpercent))
+    
     const chartdata  = {
         labels: labels,
         datasets: [{
@@ -100,14 +71,3 @@ function chartCore(price,plan,servers) {
         }
         setInterval(randomize,2000)
     }
-    nope = document.getElementById("nope")
-    context = nope.getContext("2d")
-    context.font = "120px Arial"
-    context.fillStyle = "Blue"
-    context.rect(0,0,500,150)
-    context.stroke()
-    context.fillText("Unable to access server load through DNS records",300,75)
-
-
-
-
