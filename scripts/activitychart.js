@@ -7,9 +7,7 @@ function generateNumberRange(start, end, step = 1) {
 }
 
 function chartCore(price,plan,servers) {
-    if (servers = 0) {
-        servers = 1
-    }
+    
     plans = {"household":100,"business":1000,"global":100000}
     housepeople = {"low":4,"medium":10,"high":19}
     corppeople = {"low":50,"medium":70,"high":100}
@@ -98,6 +96,13 @@ function chartCore(price,plan,servers) {
         }
         setInterval(randomize,2000)
     }
+    nope = document.getElementById("nope")
+    context = nope.getContext("2d")
+    context.font = "120px Arial"
+    context.fillStyle = "Blue"
+    context.rect(0,0,500,150)
+    context.stroke()
+    context.fillText("Unable to access server load through DNS records",300,75)
 
 
 
