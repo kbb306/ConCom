@@ -21,11 +21,6 @@ function fileInator(dyndomains) {
             value: '0%',
             style: {
                 color: '#000',
-                position: 'absolute',
-                right: '0',
-                top: '30px',
-                padding: 0,
-                margin: 0,
                 transform: null
             },
             autoStyleContainer: false
