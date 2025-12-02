@@ -32,7 +32,9 @@ function fileInator(dyndomains) {
         const prefixes = [
             "marysbakingco","facelessmegacorp","randomacademy",
             "deleteheads2004","arc","willowhillpsych",
-            "randomcitygeneralhospital","okdonuts","monstersincorporated"
+            "randomcitygeneralhospital","okdonuts","monstersincorporated","saltcamsite.concomcompany.com",
+            "greathardware.concomcompany.com","krazykarlres.concomcompany.com","paymequick.concomcompany.com",
+            "myfavbooks.concomcompany.com","easymathlearning.concomcompany.com"
         ].concat(dyndomains);
 
         const smallFiles = [
@@ -40,7 +42,7 @@ function fileInator(dyndomains) {
             "index.html","purchase_records.sql","secret_recipes.txt",
             "manifesto.html","namgyubirthdaydontsharesubongiswear.jpg",
             "donuts_staff_hbo_max_password_dont_share.txt",
-            "MM_rev_engin_blueprints.pdf",
+            "MM_rev_engin_blueprints.pdf","public_key.pem"
         ];
         const medFiles = [
             "Employees.db","passwords.kdbx","accounts.dat","users.sql",

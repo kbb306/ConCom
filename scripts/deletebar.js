@@ -40,7 +40,13 @@ function deleteInator() {
         const smallFiles = [
             "Employees.db","passwords.kdbx","accounts.dat","users.sql",
             "index.html","purchase_records.sql","secret_recipes.txt",
-            "manifesto.docx","shellcompanies.xslx","saudis.checkbook","founder_last_will.pdf"
+            "manifesto.docx","shellcompanies.xslx","saudis.checkbook","founder_last_will.pdf",
+            "client_data_breach_logs.txt",
+            "prototype_drone_specs.pdf","secret_operations_memo.docx","chem_lab_results_2024.7z",
+            "hr_termination_reports.csv","milestone_report_Q3_final.pptx","arcane_projects_overview.pdf",
+            "server_access_keys_private.pem","encrypted_chat_logs.enc","marketing_strategy_2025_final.pptx",
+            "employee_surveillance_records.dat","satellite_imagery_raw.geo","archive_room_inventory.json",
+            "vault_system_map.svg"
         ];
         const medFiles = [
             "Employees.db","passwords.kdbx","accounts.dat","users.sql",
