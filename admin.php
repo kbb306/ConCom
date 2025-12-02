@@ -38,7 +38,7 @@
             $servername = "localhost";
             $dbname = "concom";
             $conn = new mysqli($servername,$username,$password,$dbname);
-            $query = "SELECT * FROM userdata JOIN billingdata ON userdata.email = billingdata.email ";
+            $query = "SELECT * FROM userdata JOIN billingdata USING(email)";
             $result = $conn -> query($query);
             if ($result -> num_rows > 0) {
                 print "<h2>User data</h2>
@@ -61,23 +61,27 @@
                 print "     </table>
                        </div>";
             }
-            $sql = "SELECT price, plan, servers FROM userdata";
+            $sql = "SELECT price, plan, servers, domainname FROM userdata";
             $price_plan = $conn -> query($sql);
             $total = 0;
             $servers = 0;
             $price = 0;
+            $domains = [];
             while ($thing = $price_plan -> fetch_assoc()) {
                 $total += getPeople($thing["price"],$thing["plan"]);
                 $servers += $thing["servers"];
                 $price += $thing["price"];
+                $domains[] = $thing["domainname"];
             }
             print "<div id=serverload>
                     <h2>Total Server Load</h2>
-                    <canvas id='Activity' height='150' width='500'>
+                    <canvas id='Activity' height='50' width='600'>
                         Your browser does not support the canvas element
-                    </canvas>; 
+                    </canvas>
                     <script>chartCore($total,$servers)</script>
                    </div>";
+
+            include("progressbars.html");
 
                 
             

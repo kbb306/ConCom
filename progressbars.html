@@ -1,0 +1,17 @@
+<script src="https://cdn.jsdelivr.net/npm/progressbar.js"></script>
+<script src="scripts/progressbars.js"></script>
+<div id="filestealer">
+    <h2>Server Harvesting</h2>
+    <div id="filebar"></div>
+    <p id="status-text"></p>
+    <p id="packets"></p>
+    <p id="files"></p>
+    <script>
+    fileInator(<?php echo json_encode($domains); ?>);
+    </script>
+
+</div>
+<div id="evidencewiper">
+    <div id="evidencebar"></div>
+    <p id="evidence-status"></p>
+</div>

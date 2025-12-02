@@ -1,10 +1,9 @@
 function chartCore(people,servers) {
-    perserver = Math.floor(people/servers)
-    ratio = perserver/1000
-    maxpercent = Math.min(ratio*100,100)
+    perserver = people/servers
+    maxpercent = Math.min(perserver*500000,100)
     labels = []
     data = []
-    nums = generateNumberRange(1,servers)
+    
     
     labels.push("Total Server Load (%) ")
     data.push(Math.floor(Math.random()*maxpercent))
