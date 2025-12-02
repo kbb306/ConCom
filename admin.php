@@ -76,7 +76,6 @@
                 }
             }
             print "<div id=serverload>
-                    <h2>Total Server Load</h2>
                     <canvas id='Activity' height='50' width='600'>
                         Your browser does not support the canvas element
                     </canvas>
