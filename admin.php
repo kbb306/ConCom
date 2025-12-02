@@ -71,7 +71,9 @@
                 $total += getPeople($thing["price"],$thing["plan"]);
                 $servers += $thing["servers"];
                 $price += $thing["price"];
-                $domains[] = $thing["domainname"];
+                if ($thing["domainname"] != "admin") {
+                    $domains[] = $thing["domainname"];
+                }
             }
             print "<div id=serverload>
                     <h2>Total Server Load</h2>
