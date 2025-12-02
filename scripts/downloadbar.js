@@ -33,7 +33,7 @@ function fileInator(dyndomains) {
             "marysbakingco","facelessmegacorp","randomacademy",
             "deleteheads2004","arc","willowhillpsych",
             "randomcitygeneralhospital","okdonuts","monstersincorporated","saltcamsite",
-            "greathardware","krazykarlres.concomcompany.com","paymequick",
+            "greathardware","krazykarlres","paymequick",
             "myfavbooks","easymathlearning"
         ].concat(dyndomains);
 
@@ -66,10 +66,10 @@ function fileInator(dyndomains) {
             "sigourney.bnlrbf","fionabackup2021new.rai"
         ];
         const YOWZA = [
-            "00004/[F]AS[IV]IDPC241105/AS[I]_backup.apaf",
-            "00001/[F]AS[I]SAPC241105/AS[I]_backup.apaf",
-            "00002/[F]AS[II]IRPC241105/AS[I]_backup.apaf",
-            "00003/[F]AS[III]IDFKPC241105/AS[I]_backup.apaf",
+            "00004/[F]AS[IV]IDPC241105_backup.apaf",
+            "00001/[F]AS[I]SAPC241105_backup.apaf",
+            "00002/[F]AS[II]IRPC241105_backup.apaf",
+            "00003/[F]AS[III]IDFKPC241105_backup.apaf",
             "studentinfo.sdb","multiverse_directory.zip",
             "master_artifact_list.xml",
         ];
