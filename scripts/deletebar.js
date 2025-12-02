@@ -6,11 +6,12 @@ function deleteInator() {
     let processedSize = 0;
     let totalFiles = 42;  // start from 42 and increment globally
 
+    const deleteStatus = document.getElementById("evidence-status")
     const GB = document.getElementById('amount-wiped');
     const filesEl   = document.getElementById('files-deleted');
 
     // Initialize the ProgressBar.js bar
-    var bar = new ProgressBar.Line('#filebar', {
+    var bar = new ProgressBar.Line('#evidencebar', {
         strokeWidth: 1,
         easing: 'easeInOut',
         duration: 500,
@@ -123,7 +124,7 @@ function deleteInator() {
             bar.setText(Math.round(overallPercent * 100) + ' %');
 
             // Update text
-            statusText.textContent = `Downloading File ${currentFile}`;
+            deleteStatus.textContent = `Destroying File ${currentFile}`;
 
             const deleted = (currentTotalProcessed/1024);
             GB.textContent = `${deleted.toLocaleString()} GB Wiped`;
