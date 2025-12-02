@@ -6,6 +6,7 @@
         <meta charset = "utf-8">
     </head>
     <body>
+        <?php include("nav.html")?>
         <form id="planform">
             <label>Select a plan:</label>
             <select name="plans" id="plans" onchange="rangeControl(this.value)">
