@@ -4,7 +4,7 @@ function deleteInator() {
     let filesCompleted = 0;
     let totalFilesSize = 0;
     let processedSize = 0;
-    let totalFiles = 42;  // start from 42 and increment globally
+    let totalFiles = 16;  // start from 16 and increment globally
 
     const deleteStatus = document.getElementById("evidence-status")
     const GB = document.getElementById('amount-wiped');
@@ -113,7 +113,7 @@ function deleteInator() {
 
         const fileInterval = setInterval(() => {
             // Random progress for this file (5–15%)
-            const randomIncrement = (Math.random() * 0.10) + 0.05;
+            const randomIncrement = (Math.random() * 0.07) + 0.03;
             currentFileProgress += randomIncrement;
 
             if (currentFileProgress >= 1.0) {
@@ -148,7 +148,7 @@ function deleteInator() {
                     processNextFile(index + 1, fileSizes, fileNames, totalSize);
                 }, 500);
             }
-        }, 150);
+        }, 210);
     }
 
     startSimulation();
