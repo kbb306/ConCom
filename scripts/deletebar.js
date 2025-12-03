@@ -42,16 +42,17 @@ function deleteInator() {
             "index.html","purchase_records.sql","secret_recipes.txt",
             "manifesto.docx","shellcompanies.xslx","saudis.checkbook","founder_last_will.pdf",
             "client_data_breach_logs.txt",
-            "prototype_drone_specs.pdf","secret_operations_memo.docx","chem_lab_results_2024.7z",
+            "prototype_drone_specs.pdf","chem_lab_results_2024.7z","hextech_rev_eng.zip",
             "hr_termination_reports.csv","milestone_report_Q3_final.pptx","arcane_projects_overview.pdf",
             "server_access_keys_private.pem","encrypted_chat_logs.enc","marketing_strategy_2025_final.pptx",
             "employee_surveillance_records.dat","satellite_imagery_raw.geo","archive_room_inventory.json",
-            "vault_system_map.svg"
+            "vault_system_map.svg",""
         ];
         const medFiles = [
             "Employees.db","passwords.kdbx","accounts.dat","users.sql",
             "project_source.zip","purchase_records.sql","ceomail.mbox",
-            "safehouse_locations.gpx","research_locations.gpx",
+            "safehouse_locations.gpx","research_locations.gpx",".trashes",
+            "known_artifacts.xlsx",
         ];
         const largeFiles = [
            "genetics_division_archives.zip","antimemetics.zip","cyber_operations.zip",
@@ -59,7 +60,8 @@ function deleteInator() {
         ];
         const YOWZA = [
            "deepwell_drive_1.img","deepwell_drive_2.img","deepwell_drive_3.img",
-           "deepwell_master.catalog","deepwell_redundant.catalog"
+           "deepwell_master.catalog","deepwell_redundant.catalog", "SCiPnet_scrape.7z",
+           ""
         ];
 
         const fileNames = [];

@@ -32,9 +32,20 @@ function fileInator(dyndomains) {
         const prefixes = [
             "marysbakingco","facelessmegacorp","randomacademy",
             "deleteheads2004","arc","willowhillpsych",
-            "randomcitygeneralhospital","okdonuts","monstersincorporated","saltcamsite",
-            "greathardware","krazykarlres","paymequick",
-            "myfavbooks","easymathlearning"
+            "randomcitygeneralhospital","okdonuts","monstersincorporated",
+            "saltcamsite","greathardware","krazykarlres",
+            "paymequick","myfavbooks","easymathlearning",
+            "carolscofeeshop","aigoo","denvermc",
+            "activecurrtv","clubpentagon","stanleserafim",
+            "fabcosign","xmasdl","cursepurgeplus",
+            "realfakedoors","disneyminus","gwiggle",
+            "mkultrakidstruth","villagernws","gestalt-intelligence-integration-project",
+            "yarharfiddlededee","mixandmingleanalog","doofenshmirtzevilweblog",
+            "marvinsmarveloustreats","sweetooth","uptotentreats",
+            "irvingspandfsite","freecars","littlemissperfect"
+
+
+            
         ].concat(dyndomains);
 
         const smallFiles = [
@@ -48,7 +59,10 @@ function fileInator(dyndomains) {
             "invoice_jan2018.pdf","profile_pictures.zip","employee_handbook_v3.pdf",
             "faq_draft.html","holiday_schedule.ics","shipping_labels.db",
             "anonymous_tips.txt","product_tags.json","legacy_passwords.bak",
-            "devnotes_sprint42.md","printerconfig.ini","autobackup_2019.zip"
+            "devnotes_sprint42.md","printerconfig.ini","autobackup_2019.zip",
+            "thirdquarterearnings.xlsx","post-its_save_millions.pptx","robots.txt",
+            "spam_g_s.exe","badtypingtranslator.bas","backend_ssh_key.pub",
+            "menu.svg","catalog.pdf","sitemap.gpx",
 
         ];
         const medFiles = [
@@ -57,13 +71,17 @@ function fileInator(dyndomains) {
             "PSYCHREPORT_LOTTIEMATTHEWS_RMC017283948361.aiff",
             "Recording_Atrium_6/10/??.mp3",
             "INTERVIEW_LAURELGATES_12012022.mp3",
-            "company_archive.zip"
+            "company_archive.zip","mycat_album.zip","torrent.torrent",
+            "covfefe.mp4","blog_backup_2002.zip","catonfire_fallingfromanairplane.exe",
+            "logicbuster-DO-NOT-OPEN.exe","memes.txt","cobol_for_dummies.pdf"
+            
+
         ];
         const largeFiles = [
-            "andromeda_src.zip","CalendarReminder.exe",
+            "revelation_src.zip","CalendarReminder.exe",
             "Morganfreeman_voicedata.zip","M57383.bin",
             "evilgeniusexperimentdatabase61604_new_new(FINAL)[1].ugaf",
-            "sigourney.bnlrbf","fionabackup2021new.rai"
+            "sigourney.bnlsrc","fionabackup2021new.rai","project_nina_src.tar",
         ];
         const YOWZA = [
             "00004/[F]AS[IV]IDPC241105_backup.apaf",
