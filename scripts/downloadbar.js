@@ -40,9 +40,9 @@ function fileInator(dyndomains) {
             "fabcosign","xmasdl","cursepurgeplus",
             "realfakedoors","disneyminus","gwiggle",
             "mkultrakidstruth","villagernws","gestalt-intelligence-integration-project",
-            "yarharfiddlededee","mixandmingleanalog","doofenshmirtzevilweblog",
+            "yarharfiddlededee","mixandmingle","doofenshmirtzevilweblog",
             "marvinsmarveloustreats","sweetooth","uptotentreats",
-            "irvingspandfsite","freecars","littlemissperfect"
+            "upafds","freecars","littlemissperfect"
 
 
             
