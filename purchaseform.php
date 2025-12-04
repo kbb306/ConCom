@@ -48,11 +48,11 @@
             <br>
             <label>Billing Address:&nbsp; <input type="text" id="address" name="address" title=""></label>
             <br>
-            <label>Zip Code:&nbsp; <input type="text" id="zip" name="zip" title="\d\d\d\d\d"></label>
+            <label>Zip Code:&nbsp; <input type="text" id="zip" name="zip" title="^(\d{5}(-\d{4})?|[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d|[A-Za-z0-9][A-Za-z0-9\s-]{1,9})$"></label>
             <br>
             <label>Email:&nbsp; <input type="email" id="email" name="email"></label>
             <br>
-            <label>Phone:&nbsp; <input type="tel" id="phone" name="phone"></label>
+            <label>Phone:&nbsp; <input type="tel" id="phone" name="phone" title="^(?=.*\d{7,})[0-9()+\-\s\.]{7,20}$"></label>
             <button type="submit" id="submit">Submit</button>
         </form>
        

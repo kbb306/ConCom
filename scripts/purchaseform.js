@@ -157,7 +157,7 @@ function validate() {
             entry = entry.firstElementChild
         }
 
-        if (entry.type == "text") {
+        if (entry.type == "text" || entry.type == "tel") {
             result = entry.value.search(RegExp(entry.title))
             console.log(result)
             if (result == -1) {
