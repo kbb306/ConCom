@@ -1,0 +1,192 @@
+.craigmail-container {
+            display: flex;
+            height: calc(100vh - 80px);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            box-sizing: border-box;
+            gap: 1rem;
+        }
+
+        .craigmail-sidebar {
+            width: 220px;
+            min-width: 200px;
+            border-right: 1px solid #ccc;
+            padding-right: 1rem;
+            box-sizing: border-box;
+        }
+
+        .craigmail-sidebar h1 {
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+        }
+
+        .craigmail-folders {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .craigmail-folders li {
+            padding: 0.4rem 0.3rem;
+            cursor: default;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .craigmail-folders li.craigmail-active-folder {
+            font-weight: bold;
+            opacity: 1;
+        }
+
+        .craigmail-search {
+            margin-top: 1rem;
+        }
+
+        .craigmail-search input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0.3rem 0.4rem;
+            font-size: 0.9rem;
+        }
+
+        .craigmail-main {
+            flex: 1;
+            display: flex;
+            gap: 1rem;
+            min-width: 0; /* fix flex overflow */
+        }
+
+        .craigmail-list {
+            width: 40%;
+            max-width: 420px;
+            border-right: 1px solid #ccc;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+            box-sizing: border-box;
+        }
+
+        .craigmail-message {
+            padding: 0.5rem 0.3rem;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+
+        .craigmail-message:hover {
+            background-color: #f5f5f5;
+        }
+
+        .craigmail-message.craigmail-selected {
+            background-color: #e7f1ff;
+        }
+
+        .craigmail-message-from {
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .craigmail-message-subject {
+            font-size: 0.9rem;
+        }
+
+        .craigmail-message-preview {
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .craigmail-message-meta {
+            font-size: 0.75rem;
+            color: #777;
+            text-align: right;
+        }
+
+        .craigmail-detail {
+            flex: 1;
+            padding: 0.5rem 0.3rem;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        .craigmail-detail-header {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.3rem;
+        }
+
+        .craigmail-detail-subject {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .craigmail-detail-meta {
+            font-size: 0.8rem;
+            color: #555;
+            margin-top: 0.2rem;
+        }
+
+              /* Formatting helpers for message bodies */
+
+        .craigmail-detail-body {
+            font-size: 0.9rem;
+            margin-top: 0.8rem;
+            white-space: pre-wrap; /* still respects newlines when using plain text */
+        }
+
+        .craigmail-small {
+            font-size: 0.8em;
+        }
+
+        .craigmail-normal {
+            font-size: 1em;
+        }
+
+        .craigmail-large {
+            font-size: 1.2em;
+        }
+
+        .craigmail-xlarge {
+            font-size: 1.5em;
+        }
+
+        .craigmail-warning {
+            color: #b22222;
+            font-weight: bold;
+        }
+
+        .craigmail-muted {
+            color: #666;
+            font-style: italic;
+        }
+
+
+        .craigmail-empty {
+            color: #666;
+            font-style: italic;
+            padding: 1rem 0;
+        }
+
+        @media (max-width: 800px) {
+            .craigmail-container {
+                flex-direction: column;
+                height: auto;
+            }
+            .craigmail-main {
+                flex-direction: column;
+            }
+            .craigmail-list {
+                width: 100%;
+                max-width: none;
+                border-right: none;
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .craigmail-indent {
+                display: block;
+                margin-left: 10em;
+            }
+
+        }

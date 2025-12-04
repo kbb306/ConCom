@@ -8,7 +8,7 @@
     <body>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="scripts/adminchart.js"></script>
-        <?php 
+        <?php include("adminnav.html");
             function getPeople($price,$plan) {
                 $plans = ["household"=>100,"business"=>1000,"global"=>100000];
                 $housepeople = ["low"=>4,"medium"=>10,"high"=>19];
