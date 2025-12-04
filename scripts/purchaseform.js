@@ -150,7 +150,7 @@ function validate() {
     caller = document.getElementById("billing")
     console.log(caller)
    form = Array.from(caller.elements) 
-   var OK = false
+   var OK = true
    for (var entry of form) {
         console.log(entry)
         if (entry.type == "label") {
@@ -168,7 +168,7 @@ function validate() {
                 OK = false
             }
             else {
-                OK = true
+                
             }
         }
         else if (entry.type == "hidden") {
@@ -180,7 +180,7 @@ function validate() {
                     already = true
                 }
                 else {
-                    OK = true
+                    
                 }
             }
         else {}
