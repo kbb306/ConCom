@@ -4,6 +4,7 @@
         <title>Embedded Webmail</title>
     </head>
     <body>
+      <?php include("adminnav.html")?>
         <div style="background-color: #EEE; padding: 10px;">Your website navigation or other content</div>
         <iframe src="https://mail.bradshawchevrolet.com/mail" style="width: 100%; height: 800px; border: none;"></iframe>
     </body>
