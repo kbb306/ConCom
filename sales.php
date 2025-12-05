@@ -35,8 +35,8 @@
                 </figure>
                 <a href="purchaseform.php?plan=global">Choose</a>
             </div>
-            <span class="disclaimer">In addition to the prices listed on the submenus, ConCom reserves the right to use spare processing power and storage on all connected client systems.</span>
         </div>
     </form>
+    <span class="disclaimer">In addition to the prices listed on the submenus, ConCom reserves the right to use spare processing power and storage on all connected client systems.</span>
 </body>
 </html>
