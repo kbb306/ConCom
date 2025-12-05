@@ -1,6 +1,6 @@
 /*Universal Styles*/
-nav {
-  ul {
+
+ nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -8,11 +8,11 @@ nav {
   background-color: #333333;
 }
 
-ul li {
+nav ul li {
   float: left;
 }
 
-ul li a {
+nav ul li a {
   display: block;
   color: white;
   text-align: center;
@@ -20,12 +20,14 @@ ul li a {
   text-decoration: none;
 }
 
-ul li a:hover {
+nav ul li a:hover {
   background-color: #111111;
 }
 /*Taken from W3schools*/
-}
 
+nav ul li img {
+  padding-right: 0.5%;
+}
 
 
 /*Styles for Home Page*/
@@ -35,30 +37,23 @@ video {
  width: 100%;
 }
 
-  .banner {
-    
-  }
-
-  .banner-text {
-    
-  }
+ 
 
 /*Styles for the about us page*/
 
-.History{
 
 
-  h1 {
+  .history h1 {
     text-align: center;
     color: rgba(34, 110, 147, 1);
   }
 
-  figure {
+  .history figure {
     text-align: center;
   }
 
  
-}
+
 
 /*Styles for the purchases page*/
 
@@ -67,11 +62,45 @@ video {
   grid-template-columns: 33% 33% 33%;
   padding-left: 8%;
   
-  h2 {
-    color: rgba(34, 110, 147, 1);
-    padding-left: 30%;
-  }
 }
+
+ .plan-grid h2 {
+    color: rgba(34, 110, 147, 1);
+    
+  }
+
+.plan-grid .plan {
+    text-align: center;
+}
+
+
+.plan-grid a,
+.plan-grid button {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  padding: 0 16px;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  border: 1px solid #0070d2;
+  color: #0070d2;
+  font-size: 13px;
+  line-height: 30px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+}
+
+.plan-grid a:hover,
+.plan-grid button:hover {
+  background-color: #f4f6f9;
+}
+
+.plan-grid figcaption {
+  font-size: 75%;
+}
+
 .disclaimer {
   font-size: x-small;
+  text-align: center;
 }
