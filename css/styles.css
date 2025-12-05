@@ -64,8 +64,13 @@ video {
 
  .plan-grid h2 {
     color: rgba(34, 110, 147, 1);
-    padding-left: 30%;
+    
   }
+
+.plan-grid .plan {
+    text-align: center;
+}
+
 
 .plan-grid a,
 .plan-grid button {
