@@ -25,7 +25,9 @@ nav ul li a:hover {
 }
 /*Taken from W3schools*/
 
-
+nav ul li img {
+  padding-right: 0.5%;
+}
 
 
 /*Styles for Home Page*/
