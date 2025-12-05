@@ -82,7 +82,7 @@
                     <script>chartCore($total,$servers)</script>
                    </div>";
 
-            include("progressbars.html");
+            include("progressbars.php");
 
                 
             
