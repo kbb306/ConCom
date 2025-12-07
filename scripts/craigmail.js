@@ -153,13 +153,21 @@ function renderDetail(detailEl, msg) {
     // Insert body as plain text, preserving line breaks
     const bodyEl = detailEl.querySelector(".craigmail-detail-body");
 
-    if (msg.bodyHtml) {
-        // Render as HTML (assumed to be authored by you / trusted)
+    if (msg.bodyFile) {
+    fetch(msg.bodyFile)
+        .then(r => r.text())
+        .then(html => bodyEl.innerHTML = html)
+        .catch(() => bodyEl.textContent = "(Unable to load email body)");
+    }
+
+    else if (msg.bodyHtml) {
         bodyEl.innerHTML = msg.bodyHtml;
-    } else {
-        // Fallback: plain text
+    }
+
+    else {
         bodyEl.textContent = msg.body || "";
     }
+
 
 }
 
